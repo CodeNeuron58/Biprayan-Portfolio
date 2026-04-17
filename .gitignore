@@ -8,6 +8,7 @@ yarn-error.log*
 dist/
 build/
 public/assets/
+# docs/ folder is used for GitHub Pages deployment
 
 # Environment variables
 .env
