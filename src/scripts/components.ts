@@ -1,28 +1,26 @@
+import navbarHtml from '../components/navbar.html?raw';
+import heroHtml from '../components/hero.html?raw';
+import aboutHtml from '../components/about.html?raw';
+import projectsHtml from '../components/projects.html?raw';
+import skillsHtml from '../components/skills.html?raw';
+import contactHtml from '../components/contact.html?raw';
+import footerHtml from '../components/footer.html?raw';
+
 export async function loadComponents(): Promise<void> {
-  const componentMap = {
-    'navbar-component': '/components/navbar.html',
-    'hero-component': '/components/hero.html',
-    'about-component': '/components/about.html',
-    'projects-component': '/components/projects.html',
-    'skills-component': '/components/skills.html',
-    'contact-component': '/components/contact.html',
-    'footer-component': '/components/footer.html'
+  const componentMap: Record<string, string> = {
+    'navbar-component': navbarHtml,
+    'hero-component': heroHtml,
+    'about-component': aboutHtml,
+    'projects-component': projectsHtml,
+    'skills-component': skillsHtml,
+    'contact-component': contactHtml,
+    'footer-component': footerHtml
   };
 
-  for (const [elementId, componentPath] of Object.entries(componentMap)) {
+  for (const [elementId, html] of Object.entries(componentMap)) {
     const element = document.getElementById(elementId);
     if (element) {
-      try {
-        const response = await fetch(componentPath);
-        if (response.ok) {
-          const html = await response.text();
-          element.innerHTML = html;
-        } else {
-          console.error(`Failed to load component ${componentPath}: ${response.status}`);
-        }
-      } catch (error) {
-        console.error(`Error loading component ${componentPath}:`, error);
-      }
+      element.innerHTML = html;
     }
   }
 }
