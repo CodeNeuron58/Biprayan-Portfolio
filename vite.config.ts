@@ -5,14 +5,11 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   root: '.',
   base: '/Biprayan-Portfolio/',
-  publicDir: 'static',
+  publicDir: 'public',
   build: {
     outDir: 'docs',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/pages/index.html'),
-      },
       output: {
         assetFileNames: (assetInfo: any) => {
           let extType = assetInfo.name?.split('.').pop() || '';
@@ -38,7 +35,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./src/styles/main.scss";`,
+        
       },
     },
   },

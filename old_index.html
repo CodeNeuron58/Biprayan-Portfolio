@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biprayan Choudhuri — AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg-2: #0f0f0f;
+  --bg-card: #111111;
+  --bg-card-hover: #161616;
+  --cyan: #00f5ff;
+  --cyan-dim: rgba(0,245,255,0.15);
+  --cyan-glow: rgba(0,245,255,0.08);
+  --cyan-border: rgba(0,245,255,0.25);
+  --text: #e8e8e8;
+  --text-dim: #888;
+  --text-muted: #555;
+  --border: rgba(255,255,255,0.06);
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--cyan-border); border-radius: 2px; }
+
+/* ── SELECTION ── */
+::selection { background: var(--cyan-dim); color: var(--cyan); }
+
+/* ── CANVAS BG ── */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.3s;
+}
+nav.scrolled { padding: 14px 60px; }
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--cyan);
+  letter-spacing: -0.05em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--cyan); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-resume {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  border: 1px solid var(--cyan-border);
+  padding: 8px 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  background: transparent;
+}
+.nav-resume:hover {
+  background: var(--cyan-dim);
+  box-shadow: 0 0 20px var(--cyan-glow);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  width: 22px; height: 1px;
+  background: var(--text-dim);
+  transition: all 0.3s;
+}
+
+/* ── SECTIONS BASE ── */
+section { position: relative; z-index: 1; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  padding-top: 80px;
+}
+
+.hero-terminal {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  line-height: 2;
+}
+.hero-terminal .active { color: var(--cyan); }
+.hero-terminal .cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: var(--cyan);
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.hero-name {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  color: var(--text);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  color: var(--cyan);
+  margin-top: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-dim);
+  margin-top: 16px;
+  max-width: 520px;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.7s forwards;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  margin-top: 44px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.btn-primary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0a0a0a;
+  background: var(--cyan);
+  padding: 13px 28px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+}
+.btn-primary:hover {
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0,245,255,0.4);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-secondary:hover {
+  color: var(--cyan);
+  border-color: var(--cyan-border);
+  background: var(--cyan-glow);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeUp 1s 1.4s forwards;
+}
+.hero-scroll-line {
+  width: 40px; height: 1px;
+  background: var(--text-muted);
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION LABELS ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--cyan);
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 2px;
+  height: 16px;
+  background: var(--cyan);
+  display: block;
+}
+
+/* ── ABOUT ── */
+#about {
+  padding: 130px 60px;
+  background: var(--bg-2);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-bio p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.about-bio p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.about-meta {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.about-meta span {
+  color: var(--cyan);
+  font-size: 0.7rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--cyan);
+  padding: 28px 24px;
+  transition: all 0.3s;
+}
+.stat-card:hover {
+  background: var(--bg-card-hover);
+  box-shadow: 0 0 20px var(--cyan-glow);
+  border-left-color: var(--cyan);
+}
+.stat-card.wide { grid-column: span 2; }
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--cyan);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* ── PROJECTS ── */
+#projects {
+  padding: 130px 60px;
+  background: var(--bg);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 1px solid var(--cyan-border);
+  padding: 32px;
+  position: relative;
+  transition: all 0.35s;
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--cyan-border);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--cyan-border), 0 0 30px var(--cyan-glow);
+  transform: translateY(-3px);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  flex: 1;
+  padding-right: 16px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.project-card:hover .project-links { opacity: 1; }
+.project-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+.project-links a:hover { color: var(--cyan); }
+.project-links svg { width: 16px; height: 16px; }
+
+.project-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  letter-spacing: 0.06em;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  flex: 1;
+  margin-bottom: 24px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cyan);
+  border: 1px solid var(--cyan-border);
+  padding: 4px 10px;
+  background: rgba(0,245,255,0.04);
+  transition: all 0.2s;
+}
+.project-card:hover .tag {
+  background: rgba(0,245,255,0.08);
+}
+
+/* ── SKILLS ── */
+#skills {
+  padding: 130px 60px;
+  background: var(--bg-2);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+}
+
+.skill-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+.skill-group-label span { color: var(--cyan); }
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  transition: all 0.25s;
+  cursor: default;
+}
+.skill-tag:hover {
+  border-color: var(--cyan-border);
+  color: var(--cyan);
+  background: var(--cyan-glow);
+}
+
+/* ── CONTACT ── */
+#contact {
+  padding: 130px 60px;
+  background: var(--bg);
+}
+
+.contact-inner {
+  max-width: 640px;
+}
+
+.contact-headline {
+  font-family: var(--font-mono);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.contact-headline em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+.contact-sub {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 52px;
+}
+
+.form-group {
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  padding: 14px 16px;
+  outline: none;
+  transition: all 0.3s;
+  appearance: none;
+}
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--cyan-border);
+  background: rgba(0,245,255,0.03);
+  box-shadow: 0 0 0 1px var(--cyan-border);
+}
+.form-textarea { resize: vertical; min-height: 120px; }
+
+.form-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #0a0a0a;
+  background: var(--cyan);
+  border: none;
+  padding: 14px 36px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s;
+  width: 100%;
+}
+.form-btn:hover {
+  background: #fff;
+  box-shadow: 0 0 30px rgba(0,245,255,0.35);
+}
+
+.contact-socials {
+  display: flex;
+  gap: 20px;
+  margin-top: 52px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-decoration: none;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.social-link svg { width: 16px; height: 16px; }
+.social-link:hover { color: var(--cyan); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 28px 60px;
+  background: #070707;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.footer-text span { color: var(--cyan); }
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── MOBILE NAV ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10,10,10,0.97);
+  z-index: 99;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--cyan); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 18px 28px; }
+  nav.scrolled { padding: 14px 28px; }
+  .nav-links { display: none; }
+  .nav-resume { display: none; }
+  .hamburger { display: flex; }
+  #hero { padding: 0 28px; padding-top: 80px; }
+  #about, #projects, #skills, #contact { padding: 90px 28px; }
+  footer { padding: 24px 28px; }
+  .about-grid { grid-template-columns: 1fr; gap: 52px; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; gap: 36px; }
+  .stat-card.wide { grid-column: span 1; }
+  .hero-scroll { left: 28px; }
+  .contact-socials { flex-wrap: wrap; }
+}
+
+@media (max-width: 500px) {
+  .hero-ctas { flex-direction: column; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card.wide { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- Particle canvas -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" style="color:var(--cyan)">Resume</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">BC</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-resume" href="Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">Resume</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-terminal">
+    <p>&gt; initializing system...</p>
+    <p>&gt; kernel loaded.</p>
+    <p class="active">&gt; user logged in. <span class="cursor"></span></p>
+  </div>
+  <h1 class="hero-name">Hi, I'm Biprayan.</h1>
+  <p class="hero-tagline">I build AI agents that think, reason, and act.</p>
+  <p class="hero-sub">AI/ML Engineer specializing in agentic systems, LangGraph multi-agent architectures, and production-grade RAG pipelines. Currently at IIT Guwahati.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="#projects">View My Work</a>
+    <a class="btn-secondary" href="Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">Download Resume</a>
+  </div>
+  <div class="hero-scroll">
+    <span class="hero-scroll-line"></span>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label reveal">&gt; about_me.txt</div>
+  <div class="about-grid">
+    <div class="about-bio reveal reveal-delay-1">
+      <p>I'm an AI/ML engineer focused on <strong>LLMs and agentic systems</strong> at IIT Guwahati. My work centers on pushing the boundaries of what local models can achieve — prioritizing efficiency, privacy, and complex reasoning pipelines over cloud dependencies.</p>
+      <p>I don't just train models; I architect ecosystems where agents communicate, verify, and execute multi-step workflows. From zero-cloud-cost inference to full-stack AI products — I build things that actually ship.</p>
+      <div class="about-meta">
+        <span>▸</span>
+        B.S. AI & Data Science — IIT Guwahati (Expected 2028)
+      </div>
+      <div class="about-meta" style="margin-top:8px">
+        <span>▸</span>
+        Open to internships & collaborations
+      </div>
+    </div>
+    <div class="stats-grid reveal reveal-delay-2">
+      <div class="stat-card">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Projects Built</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat-card wide">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Local AI Enthusiast & Advocate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label reveal">&gt; projects/</div>
+  <div class="projects-grid">
+
+    <!-- AI Companion Agent -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-card-header">
+        <div class="project-name">AI Companion Agent</div>
+        <div class="project-links">
+          <a href="https://github.com/CodeNeuron58" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-date">Feb 2026 – Present</div>
+      <p class="project-desc">Zero-cloud-cost real-time AI companion running entirely on CPU using free-tier APIs and small local models. Features persistent memory, emotional context tracking, and personality state management via LangGraph — plus a full-stack animated 2D avatar frontend.</p>
+      <div class="project-tags">
+        <span class="tag">LangGraph</span>
+        <span class="tag">LangChain</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">PixiJS</span>
+        <span class="tag">Local LLMs</span>
+      </div>
+    </div>
+
+    <!-- RxGuard -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-card-header">
+        <div class="project-name">RxGuard — Medication Safety Copilot</div>
+        <div class="project-links">
+          <a href="https://github.com/CodeNeuron58" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-date">Jan 2026 – Feb 2026</div>
+      <p class="project-desc">100% local, air-gapped clinical AI agent over a FAISS vector store. Features a Safety Critic node that autonomously evaluates reasoning, enforces citations, and triggers re-evaluation loops — cutting hallucination rate in complex multi-drug queries to near zero.</p>
+      <div class="project-tags">
+        <span class="tag">LangGraph</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">Pydantic</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+
+    <!-- LangGraph Blog Agent -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-card-header">
+        <div class="project-name">LangGraph Blog Agent</div>
+        <div class="project-links">
+          <a href="https://github.com/CodeNeuron58" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-date">Jan 2026 – Feb 2026</div>
+      <p class="project-desc">Multi-agent blog system with a fan-out state graph enabling parallel section drafting — reducing content generation time by 60% vs sequential execution. Integrated Tavily real-time web research; orchestrator generates structured plans with strict goals and wordcount targets.</p>
+      <div class="project-tags">
+        <span class="tag">LangGraph</span>
+        <span class="tag">Groq</span>
+        <span class="tag">Llama-3.3-70B</span>
+        <span class="tag">Tavily API</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+
+    <!-- Video-RAG-Analyst -->
+    <div class="project-card reveal reveal-delay-2">
+      <div class="project-card-header">
+        <div class="project-name">Video-RAG-Analyst</div>
+        <div class="project-links">
+          <a href="https://github.com/CodeNeuron58" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-date">Jul 2025 – Sep 2025</div>
+      <p class="project-desc">End-to-end RAG pipeline to extract, summarize, and semantically query YouTube transcripts using HuggingFace sentence-transformer embeddings and FAISS vector retrieval. Supports real-time Q&A with automated source citation at zero per-query cost.</p>
+      <div class="project-tags">
+        <span class="tag">LangChain</span>
+        <span class="tag">Cohere</span>
+        <span class="tag">FAISS</span>
+        <span class="tag">HuggingFace</span>
+        <span class="tag">Streamlit</span>
+      </div>
+    </div>
+
+    <!-- Sentiment Classification -->
+    <div class="project-card reveal reveal-delay-1" style="grid-column: span 1">
+      <div class="project-card-header">
+        <div class="project-name">Sentiment Classification Model</div>
+        <div class="project-links">
+          <a href="https://github.com/CodeNeuron58" target="_blank" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-date">Jan 2025 – Mar 2025</div>
+      <p class="project-desc">Improved classification accuracy from 65% (Random Forest baseline) to 86% on a noisy real-world dataset using TF-IDF vectorization and LightGBM — a 32% relative improvement on challenging, unclean data.</p>
+      <div class="project-tags">
+        <span class="tag">scikit-learn</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">TF-IDF</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label reveal">&gt; skills.json</div>
+  <div class="skills-grid">
+    <div class="reveal reveal-delay-1">
+      <div class="skill-group-label"><span>"</span>Languages<span>"</span>: [</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="skill-group-label"><span>"</span>ML / AI Frameworks<span>"</span>: [</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">LangGraph</span>
+        <span class="skill-tag">HuggingFace Transformers</span>
+        <span class="skill-tag">OpenAI API</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="skill-group-label"><span>"</span>LLMs & NLP<span>"</span>: [</div>
+      <div class="skill-tags">
+        <span class="skill-tag">RAG Systems</span>
+        <span class="skill-tag">Transformer Models</span>
+        <span class="skill-tag">Fine-tuning</span>
+        <span class="skill-tag">BERT</span>
+        <span class="skill-tag">FAISS</span>
+        <span class="skill-tag">Vector Databases</span>
+        <span class="skill-tag">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="skill-group-label"><span>"</span>Tools & Platforms<span>"</span>: [</div>
+      <div class="skill-tags">
+        <span class="skill-tag">FastAPI</span>
+        <span class="skill-tag">Streamlit</span>
+        <span class="skill-tag">Ollama</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">MLOps</span>
+        <span class="skill-tag">Pydantic</span>
+        <span class="skill-tag">PixiJS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">&gt; contact.sh</div>
+  <div class="contact-inner">
+    <h2 class="contact-headline reveal">Let's build something <em>intelligent</em> together.</h2>
+    <p class="contact-sub reveal reveal-delay-1">Open to internships, research collaborations, and interesting problems. If you're working on something at the frontier of AI — I'd love to hear about it.</p>
+    <div class="reveal reveal-delay-2">
+      <div class="form-group">
+        <label class="form-label" for="name">Sender_Name</label>
+        <input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Return_Address</label>
+        <input class="form-input" id="email" type="email" placeholder="your@email.com" autocomplete="off"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="message">Payload</label>
+        <textarea class="form-textarea" id="message" placeholder="Your message..."></textarea>
+      </div>
+      <button class="form-btn" onclick="handleSubmit()">Execute_Transmit</button>
+    </div>
+    <div class="contact-socials reveal reveal-delay-3">
+      <a class="social-link" href="mailto:biprayanc@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a class="social-link" href="https://linkedin.com/in/biprayanchoudhuri" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="social-link" href="https://github.com/CodeNeuron58" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-text">Built by <span>Biprayan Choudhuri</span> © 2025</p>
+  <div class="footer-status">
+    <span class="status-dot"></span>
+    Open to opportunities
+  </div>
+</footer>
+
+<script>
+// ── PARTICLE CANVAS ──
+(function() {
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const N = 55;
+  for (let i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * 1920,
+      y: Math.random() * 1080,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
+      a: Math.random() * 0.5 + 0.1
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    // connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i+1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 160) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(0,245,255,${0.06*(1-dist/160)})`;
+          ctx.lineWidth = 0.5;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    // dots
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(0,245,255,${p.a})`;
+      ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── NAVBAR SCROLL ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── MOBILE MENU ──
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ── SCROLL REVEAL ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+
+// ── CONTACT FORM ──
+function handleSubmit() {
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if (!name || !email || !message) {
+    alert('Please fill in all fields.');
+    return;
+  }
+  const mailto = `mailto:biprayanc@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}`;
+  window.location.href = mailto;
+}
+</script>
+</body>
+</html>
