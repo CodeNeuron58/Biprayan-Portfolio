@@ -1,0 +1,28 @@
+{
+  "name": "Biprayan Choudhuri",
+  "title": "AI/ML Engineer",
+  "tagline": "I build AI agents that think, reason, and act.",
+  "bio": "AI/ML Engineer specializing in agentic systems, LangGraph multi-agent architectures, and production-grade RAG pipelines. Currently at IIT Guwahati.",
+  "education": "B.S. AI & Data Science - IIT Guwahati (Expected 2028)",
+  "status": "Open to internships & collaborations",
+  "contact": {
+    "email": "biprayanc@gmail.com",
+    "linkedin": "https://linkedin.com/in/biprayanchoudhuri",
+    "github": "https://github.com/CodeNeuron58"
+  },
+  "stats": [
+    {
+      "number": "5+",
+      "label": "Projects Built"
+    },
+    {
+      "number": "2",
+      "label": "Certifications"
+    },
+    {
+      "number": "100%",
+      "label": "Local AI Enthusiast & Advocate",
+      "wide": true
+    }
+  ]
+}

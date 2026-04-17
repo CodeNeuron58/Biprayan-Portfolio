@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ai-companion",
+    "name": "AI Companion Agent",
+    "date": "Feb 2026 - Present",
+    "description": "Zero-cloud-cost real-time AI companion running entirely on CPU using free-tier APIs and small local models. Features persistent memory, emotional context tracking, and personality state management via LangGraph - plus a full-stack animated 2D avatar frontend.",
+    "tags": ["LangGraph", "LangChain", "FastAPI", "PixiJS", "Local LLMs"],
+    "links": {
+      "github": "https://github.com/CodeNeuron58"
+    }
+  },
+  {
+    "id": "rxguard",
+    "name": "RxGuard - Medication Safety Copilot",
+    "date": "Jan 2026 - Feb 2026",
+    "description": "100% local, air-gapped clinical AI agent over a FAISS vector store. Features a Safety Critic node that autonomously evaluates reasoning, enforces citations, and triggers re-evaluation loops - cutting hallucination rate in complex multi-drug queries to near zero.",
+    "tags": ["LangGraph", "Ollama", "FAISS", "Pydantic", "Streamlit"],
+    "links": {
+      "github": "https://github.com/CodeNeuron58"
+    }
+  },
+  {
+    "id": "langgraph-blog",
+    "name": "LangGraph Blog Agent",
+    "date": "Jan 2026 - Feb 2026",
+    "description": "Multi-agent blog system with a fan-out state graph enabling parallel section drafting - reducing content generation time by 60% vs sequential execution. Integrated Tavily real-time web research; orchestrator generates structured plans with strict goals and wordcount targets.",
+    "tags": ["LangGraph", "Groq", "Llama-3.3-70B", "Tavily API", "Streamlit"],
+    "links": {
+      "github": "https://github.com/CodeNeuron58"
+    }
+  },
+  {
+    "id": "video-rag-analyst",
+    "name": "Video-RAG-Analyst",
+    "date": "Jul 2025 - Sep 2025",
+    "description": "End-to-end RAG pipeline to extract, summarize, and semantically query YouTube transcripts using HuggingFace sentence-transformer embeddings and FAISS vector retrieval. Supports real-time Q&A with automated source citation at zero per-query cost.",
+    "tags": ["LangChain", "Cohere", "FAISS", "HuggingFace", "Streamlit"],
+    "links": {
+      "github": "https://github.com/CodeNeuron58"
+    }
+  },
+  {
+    "id": "sentiment-classification",
+    "name": "Sentiment Classification Model",
+    "date": "Jan 2025 - Mar 2025",
+    "description": "Improved classification accuracy from 65% (Random Forest baseline) to 86% on a noisy real-world dataset using TF-IDF vectorization and LightGBM - a 32% relative improvement on challenging, unclean data.",
+    "tags": ["scikit-learn", "LightGBM", "TF-IDF", "Python"],
+    "links": {
+      "github": "https://github.com/CodeNeuron58"
+    }
+  }
+]
