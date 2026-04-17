@@ -28,37 +28,33 @@ npm run preview
 
 ## Deployment Options
 
-### 1. Netlify (Recommended)
+### 1. GitHub Codespaces (Recommended for Manual Deployment)
 
-#### Automatic Deployment
-1. Connect your GitHub repository to Netlify
-2. Set build command: `npm run build`
-3. Set publish directory: `public`
-4. Deploy automatically on push to main branch
+1. Open your repository in GitHub Codespaces
+2. Install dependencies: `npm install`
+3. Build the project: `npm run build`
+4. The built files will be in the `public` directory
+5. Use the Codespaces port forwarding to preview your site
+6. Deploy the `public` folder contents to your preferred hosting service
 
-#### Manual Deployment
+### 2. Netlify (Manual Deployment)
+
 1. Run `npm run build`
 2. Drag and drop the `public` folder to Netlify
 3. Your site will be live instantly
 
-### 2. Vercel
+### 3. Vercel (Manual Deployment)
 
-#### Automatic Deployment
-1. Connect your GitHub repository to Vercel
-2. Vercel will auto-detect the settings
-3. Deploy automatically on push
-
-#### Manual Deployment
 1. Run `npm run build`
 2. Run `vercel --prod` (requires Vercel CLI)
 
-### 3. GitHub Pages
+### 4. GitHub Pages
 
 1. Update `vite.config.ts` base path to `/repository-name/`
 2. Run `npm run build`
 3. Deploy the `public` folder to `gh-pages` branch
 
-### 4. Traditional Hosting
+### 5. Traditional Hosting
 
 1. Run `npm run build`
 2. Upload the entire `public` folder to your hosting service
@@ -118,5 +114,5 @@ The build process includes:
 ## Security
 
 - HTTPS is enabled by default on most platforms
-- CSP headers are configured in `netlify.toml`
 - No sensitive data is exposed in client-side code
+- Consider adding CSP headers through your hosting service's security settings
