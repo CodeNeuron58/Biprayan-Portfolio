@@ -4,10 +4,10 @@ import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   root: '.',
-  base: '/',
+  base: '/Biprayan-Portfolio/',
   build: {
     outDir: 'public',
-    emptyOutDir: false,
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: resolve(fileURLToPath(new URL('.', import.meta.url)), 'src/pages/index.html'),

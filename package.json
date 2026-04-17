@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "serve": "vite preview --port 3000",
+    "deploy": "npm run build && gh-pages -d public",
     "lint": "eslint src --ext .ts,.js --fix",
     "format": "prettier --write src/**/*.{ts,js,scss,css,html,json}"
   },
