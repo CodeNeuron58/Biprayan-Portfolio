@@ -116,3 +116,5 @@ MIT License - feel free to use this as a template for your own portfolio!
 - Email: biprayanc@gmail.com
 - LinkedIn: https://linkedin.com/in/biprayanchoudhuri
 - GitHub: https://github.com/CodeNeuron58
+
+# GitHub Pages Deployment Configured
