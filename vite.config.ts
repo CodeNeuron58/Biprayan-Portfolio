@@ -5,8 +5,9 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   root: '.',
   base: '/Biprayan-Portfolio/',
+  publicDir: 'static',
   build: {
-    outDir: 'dist',
+    outDir: 'public',
     emptyOutDir: true,
     rollupOptions: {
       input: {
@@ -37,7 +38,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/styles/main.scss";`,
+        additionalData: `@import "./src/styles/main.scss";`,
       },
     },
   },
