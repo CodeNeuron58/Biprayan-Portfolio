@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/Biprayan-Portfolio/',
   publicDir: 'static',
   build: {
-    outDir: 'public',
+    outDir: 'docs',
     emptyOutDir: true,
     rollupOptions: {
       input: {
