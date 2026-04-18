@@ -1,46 +1,68 @@
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label reveal">&gt; contact.sh</div>
-  <div class="contact-inner">
-    <h2 class="contact-headline reveal">Let's build something <em>intelligent</em> together.</h2>
-    <p class="contact-sub reveal reveal-delay-1">Open to internships, research collaborations, and interesting problems. If you're working on something at the frontier of AI - I'd love to hear about it.</p>
-    <div class="reveal reveal-delay-2">
-      <div class="form-group">
-        <label class="form-label" for="name">Sender_Name</label>
-        <input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="off"/>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="email">Return_Address</label>
-        <input class="form-input" id="email" type="email" placeholder="your@email.com" autocomplete="off"/>
-      </div>
-      <div class="form-group">
-        <label class="form-label" for="message">Payload</label>
-        <textarea class="form-textarea" id="message" placeholder="Your message..."></textarea>
-      </div>
-      <button class="form-btn" onclick="handleSubmit()">Execute_Transmit</button>
+  <div class="section-label reveal terminal-cmd">$ ./contact.sh</div>
+  
+  <div class="terminal-window contact-terminal reveal">
+    <div class="terminal-header">
+      <span class="terminal-btn close"></span>
+      <span class="terminal-btn minimize"></span>
+      <span class="terminal-btn maximize"></span>
+      <span class="terminal-title">transmit_message.sh — ~/portfolio/connection</span>
     </div>
-    <div class="contact-socials reveal reveal-delay-3">
-      <a class="social-link" href="mailto:biprayanc@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
-        </svg>
-        Email
-      </a>
-      <a class="social-link" href="https://linkedin.com/in/biprayanchoudhuri" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-          <rect x="2" y="9" width="4" height="12"/>
-          <circle cx="4" cy="4" r="2"/>
-        </svg>
-        LinkedIn
-      </a>
-      <a class="social-link" href="https://github.com/CodeNeuron58" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-        </svg>
-        GitHub
-      </a>
+    <div class="terminal-body contact-terminal-body">
+      <div class="contact-header">
+        <h2 class="contact-headline">Let's build something <em class="terminal-highlight">intelligent</em> together.</h2>
+        <p class="contact-sub">Open to internships, research collaborations, and interesting problems. If you're working on something at the frontier of AI - I'd love to hear about it.</p>
+      </div>
+      
+      <div class="terminal-form">
+        <div class="form-group">
+          <label class="form-label terminal-label" for="name">
+            <span class="terminal-prompt">$</span> echo "name"
+          </label>
+          <input class="form-input terminal-input" id="name" type="text" placeholder="Your name" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label terminal-label" for="email">
+            <span class="terminal-prompt">$</span> echo "email"
+          </label>
+          <input class="form-input terminal-input" id="email" type="email" placeholder="your@email.com" autocomplete="off"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label terminal-label" for="message">
+            <span class="terminal-prompt">$</span> cat message.txt
+          </label>
+          <textarea class="form-textarea terminal-input" id="message" placeholder="Your message..."></textarea>
+        </div>
+        <button class="form-btn terminal-btn-submit" onclick="handleSubmit()">
+          <span class="btn-prompt">[~/portfolio] $</span>
+          <span class="btn-command">./transmit.sh</span>
+        </button>
+      </div>
+      
+      <div class="contact-socials reveal reveal-delay-3">
+        <a class="social-link" href="mailto:biprayanc@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          Email
+        </a>
+        <a class="social-link" href="https://linkedin.com/in/biprayanchoudhuri" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a class="social-link" href="https://github.com/CodeNeuron58" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
     </div>
   </div>
 </section>

@@ -1,7 +1,29 @@
 <!-- SKILLS -->
 <section id="skills">
-  <div class="section-label reveal">&gt; skills.json</div>
-  <div class="skills-bento-grid" id="skills-container">
-    <!-- Skills will be dynamically inserted here -->
+  <div class="section-label reveal terminal-cmd">$ pip install skills</div>
+  
+  <div class="terminal-window skills-terminal reveal">
+    <div class="terminal-header">
+      <span class="terminal-btn close"></span>
+      <span class="terminal-btn minimize"></span>
+      <span class="terminal-btn maximize"></span>
+      <span class="terminal-title">install_skills.sh — ~/portfolio/packages</span>
+    </div>
+    <div class="terminal-body skills-terminal-body">
+      <div class="install-progress">
+        <span class="install-status">Collecting packages...</span>
+        <div class="progress-bar">
+          <div class="progress-fill" id="skills-progress"></div>
+        </div>
+        <span class="install-percent">100%</span>
+      </div>
+      <div class="skills-bento-grid" id="skills-container">
+        <!-- Skills will be dynamically inserted here -->
+      </div>
+      <div class="install-success">
+        <span class="success-icon">✓</span>
+        <span>Successfully installed all packages</span>
+      </div>
+    </div>
   </div>
 </section>

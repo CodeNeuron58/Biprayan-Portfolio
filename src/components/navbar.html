@@ -4,19 +4,31 @@
   <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" style="color:var(--cyan)">Resume</a>
+  <a href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" style="color:var(--terminal-cyan)">Resume</a>
 </div>
 
 <!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#">BC</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
+<nav id="navbar" class="system-navbar">
+  <div class="nav-status">
+    <span class="status-indicator online"></span>
+    <span class="nav-path" id="nav-path">~/portfolio</span>
+  </div>
+  
+  <ul class="nav-links terminal-nav">
+    <li><a href="#about" data-path="~/about">about</a></li>
+    <li><a href="#projects" data-path="~/projects">projects</a></li>
+    <li><a href="#skills" data-path="~/skills">skills</a></li>
+    <li><a href="#contact" data-path="~/contact">contact</a></li>
   </ul>
-  <a class="nav-resume" href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">Resume</a>
+  
+  <div class="nav-right">
+    <a class="nav-resume terminal-resume" href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">
+      <span class="resume-icon">📄</span>
+      <span>resume.pdf</span>
+    </a>
+    <span class="nav-clock" id="nav-clock">00:00:00</span>
+  </div>
+  
   <div class="hamburger" id="hamburger" onclick="toggleMobile()">
     <span></span><span></span><span></span>
   </div>

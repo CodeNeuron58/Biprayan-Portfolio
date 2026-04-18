@@ -1,7 +1,22 @@
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="section-label reveal">&gt; projects/</div>
-  <div class="projects-grid" id="projects-container">
-    <!-- Projects will be dynamically inserted here -->
+  <div class="section-label reveal terminal-cmd">$ ls -la projects/</div>
+  
+  <div class="terminal-window projects-terminal reveal">
+    <div class="terminal-header">
+      <span class="terminal-btn close"></span>
+      <span class="terminal-btn minimize"></span>
+      <span class="terminal-btn maximize"></span>
+      <span class="terminal-title">projects/ — ~/portfolio/repository</span>
+    </div>
+    <div class="terminal-body projects-terminal-body">
+      <div class="projects-filter">
+        <span class="filter-prompt">$ grep</span>
+        <input type="text" class="filter-input" placeholder="langgraph, rag, python..." id="project-filter" />
+      </div>
+      <div class="projects-grid" id="projects-container">
+        <!-- Projects will be dynamically inserted here -->
+      </div>
+    </div>
   </div>
 </section>

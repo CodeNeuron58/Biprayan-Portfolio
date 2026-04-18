@@ -1,19 +1,36 @@
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-terminal">
-    <p>&gt; initializing system...</p>
-    <p>&gt; kernel loaded.</p>
-    <p class="active">&gt; user logged in. <span class="cursor"></span></p>
+  <div class="hero-terminal-window">
+    <div class="terminal-header">
+      <span class="terminal-btn close"></span>
+      <span class="terminal-btn minimize"></span>
+      <span class="terminal-btn maximize"></span>
+      <span class="terminal-title">system_boot.log</span>
+    </div>
+    <div class="terminal-body">
+      <p><span class="terminal-prompt">$</span> initializing portfolio.kernel...</p>
+      <p><span class="terminal-prompt">$</span> kernel loaded. <span class="success-text">[OK]</span></p>
+      <p class="active"><span class="terminal-prompt">$</span> user logged in. <span class="typing-cursor">█</span></p>
+    </div>
   </div>
-  <h1 class="hero-name">Hi, I'm Biprayan.</h1>
+  
+  <h1 class="hero-name glitch-text">Hi, I'm Biprayan.</h1>
   <p class="hero-tagline">I build AI agents that think, reason, and act.</p>
   <p class="hero-sub">AI/ML Engineer specializing in agentic systems, LangGraph multi-agent architectures, and production-grade RAG pipelines. Currently at IIT Guwahati.</p>
+  
   <div class="hero-ctas">
-    <a class="btn-primary" href="#projects">View My Work</a>
-    <a class="btn-secondary" href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">Download Resume</a>
+    <a class="btn-terminal btn-primary" href="#projects">
+      <span class="btn-prompt">[~/portfolio] $</span>
+      <span class="btn-command">./view-projects.sh</span>
+    </a>
+    <a class="btn-terminal btn-secondary" href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">
+      <span class="btn-prompt">[~/portfolio] $</span>
+      <span class="btn-command">cat resume.pdf</span>
+    </a>
   </div>
+  
   <div class="hero-scroll">
     <span class="hero-scroll-line"></span>
-    Scroll to explore
+    <span class="scroll-text">Scroll to explore</span>
   </div>
 </section>

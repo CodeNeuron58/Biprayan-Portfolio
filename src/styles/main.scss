@@ -1,3 +1,6 @@
+// Import terminal styles (must be first)
+@use 'terminal';
+
 // Variables
 :root {
   --bg: #0f172a;
@@ -15,6 +18,13 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-heading: 'Instrument Serif', serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
+  
+  // Terminal accent colors
+  --terminal-green: #00ff41;
+  --terminal-cyan: #00d4ff;
+  --terminal-amber: #ffb000;
+  --terminal-red: #ff5f56;
+  --terminal-yellow: #ffbd2e;
 }
 
 // Base styles
@@ -117,23 +127,7 @@ nav.scrolled {
   width: 100%; 
 }
 
-.nav-resume {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
-  padding: 8px 20px;
-  text-decoration: none;
-  transition: all 0.3s;
-  background: transparent;
-}
-
-.nav-resume:hover {
-  background: var(--accent-dim);
-  box-shadow: 0 0 20px var(--accent-glow);
-}
+// .nav-resume now styled as .terminal-resume in _terminal.scss
 
 .hamburger {
   display: none;
@@ -165,25 +159,8 @@ section {
   padding-top: 80px;
 }
 
-.hero-terminal {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-bottom: 28px;
-  line-height: 2;
-}
-
-.hero-terminal .active { 
-  color: var(--accent); 
-}
-
-.hero-terminal .cursor {
-  display: inline-block;
-  width: 8px; height: 14px;
-  background: var(--accent);
-  vertical-align: middle;
-  animation: blink 1s step-end infinite;
-}
+// Hero terminal window is now styled in _terminal.scss
+// Old .hero-terminal replaced with .hero-terminal-window
 
 @keyframes blink { 
   0%,100%{opacity:1} 
@@ -234,42 +211,7 @@ section {
   animation: fadeUp 0.8s 0.9s forwards;
 }
 
-.btn-primary {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #0a0a0a;
-  background: var(--accent);
-  padding: 13px 28px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: all 0.3s;
-}
-
-.btn-primary:hover {
-  background: #fff;
-  box-shadow: 0 0 30px rgba(16,185,129,0.4);
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-  padding: 13px 28px;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.btn-secondary:hover {
-  color: var(--accent);
-  border-color: var(--accent-border);
-  background: var(--accent-glow);
-}
+// btn-primary and btn-secondary now styled as .btn-terminal in _terminal.scss
 
 .hero-scroll {
   position: absolute;
@@ -362,61 +304,11 @@ section {
 .bento-span-2-row { grid-row: span 2; }
 
 // About section specific styles
-.about-bio p {
-  font-size: 1rem;
-  line-height: 1.85;
-  color: var(--text-dim);
-  margin-bottom: 20px;
-}
+// .about-bio styles now handled by .about-terminal-body in _terminal.scss
 
-.about-bio p strong {
-  color: var(--text);
-  font-weight: 500;
-}
+// .about-meta now handled by .terminal-meta in _terminal.scss
 
-.about-meta {
-  margin-top: 28px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.about-meta span {
-  color: var(--accent);
-  font-size: 0.7rem;
-}
-
-// Stats as bento cards
-.bento-stat {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 140px;
-}
-
-.bento-stat .stat-number {
-  font-family: var(--font-mono);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.bento-stat .stat-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  max-width: 80%;
-  line-height: 1.3;
-}
+// Stats as bento cards - now combined with .terminal-file in _terminal.scss
 
 // Projects section
 #projects {
@@ -430,111 +322,7 @@ section {
   gap: 20px;
 }
 
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-top: 1px solid var(--accent-border);
-  padding: 32px;
-  position: relative;
-  transition: all 0.35s;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--accent-border);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent-border), 0 0 30px var(--accent-glow);
-  transform: translateY(-3px);
-}
-
-.project-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 14px;
-}
-
-.project-name {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  flex: 1;
-  padding-right: 16px;
-}
-
-.project-links {
-  display: flex;
-  gap: 10px;
-  opacity: 0.4;
-  transition: opacity 0.2s;
-  flex-shrink: 0;
-}
-
-.project-card:hover .project-links { 
-  opacity: 1; 
-}
-
-.project-links a {
-  color: var(--text-dim);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-}
-
-.project-links a:hover { 
-  color: var(--accent); 
-}
-
-.project-links svg { 
-  width: 16px; 
-  height: 16px; 
-}
-
-.project-date {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  margin-bottom: 12px;
-  letter-spacing: 0.06em;
-}
-
-.project-desc {
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: var(--text-dim);
-  flex: 1;
-  margin-bottom: 24px;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.tag {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
-  padding: 4px 10px;
-  background: rgba(16,185,129,0.04);
-  transition: all 0.2s;
-}
-
-.project-card:hover .tag {
-  background: rgba(16,185,129,0.08);
-}
+// Project card styles now handled by .terminal-project in _terminal.scss
 
 // Skills section with bento grid
 #skills {
@@ -544,74 +332,11 @@ section {
 
 .skills-bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
 
-.skill-bento-card {
-  background: rgba(30, 41, 59, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 32px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.skill-bento-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.skill-bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.12);
-  border-color: rgba(16,185,129,0.25);
-}
-
-.skill-bento-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.skill-bento-label span {
-  color: var(--accent);
-}
-
-.skill-bento-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.skill-bento-tag {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text);
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: all 0.25s;
-  cursor: default;
-}
-
-.skill-bento-tag:hover {
-  border-color: rgba(16,185,129,0.3);
-  color: var(--accent);
-  background: rgba(16,185,129,0.08);
-}
+// Skill styles now handled by .skill-package in _terminal.scss
 
 // Contact section
 #contact {
@@ -619,91 +344,7 @@ section {
   background: var(--bg);
 }
 
-.contact-inner {
-  max-width: 640px;
-}
-
-.contact-headline {
-  font-family: var(--font-heading);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1.25;
-  margin-bottom: 16px;
-}
-
-.contact-headline em {
-  color: var(--accent);
-  font-style: normal;
-}
-
-.contact-sub {
-  font-size: 0.95rem;
-  color: var(--text-dim);
-  line-height: 1.7;
-  margin-bottom: 52px;
-}
-
-.form-group {
-  margin-bottom: 36px;
-  position: relative;
-}
-
-.form-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  margin-bottom: 10px;
-}
-
-.form-input, .form-textarea {
-  width: 100%;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-  color: var(--text);
-  font-family: var(--font-mono);
-  font-size: 0.88rem;
-  padding: 14px 16px;
-  outline: none;
-  transition: all 0.3s;
-  appearance: none;
-}
-
-.form-input:focus, .form-textarea:focus {
-  border-color: var(--accent-border);
-  background: rgba(16,185,129,0.03);
-  box-shadow: 0 0 0 1px var(--accent-border);
-}
-
-.form-textarea { 
-  resize: vertical; 
-  min-height: 120px; 
-}
-
-.form-btn {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #0a0a0a;
-  background: var(--accent);
-  border: none;
-  padding: 14px 36px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.3s;
-  width: 100%;
-}
-
-.form-btn:hover {
-  background: #fff;
-  box-shadow: 0 0 30px rgba(16,185,129,0.35);
-}
+// Contact styles now handled by .contact-terminal in _terminal.scss
 
 .contact-socials {
   display: flex;
@@ -1067,9 +708,11 @@ footer {
 @media (max-width: 900px) {
   nav { padding: 18px 28px; }
   nav.scrolled { padding: 14px 28px; }
-  .nav-links { display: none; }
-  .nav-resume { display: none; }
+  .nav-links, .terminal-nav { display: none; }
+  .nav-resume, .terminal-resume { display: none; }
+  .nav-right { display: none; }
   .hamburger { display: flex; }
+  .nav-status .nav-path { display: none; }
   #hero { padding: 0 28px; padding-top: 80px; }
   #about, #projects, #skills, #contact { padding: 90px 28px; }
   footer { padding: 24px 28px; }
@@ -1129,10 +772,28 @@ footer {
     gap: 16px;
   }
   
-  .bento-card {
+  .bento-card, .terminal-file {
     padding: 24px 28px;
   }
-  .skill-bento-card {
-    padding: 24px;
+  .skill-package {
+    padding: 16px;
+  }
+  
+  // Terminal windows mobile
+  .hero-terminal-window {
+    max-width: 100%;
+  }
+  .terminal-window {
+    border-radius: 6px;
+  }
+  .terminal-body {
+    padding: 12px;
+  }
+  .boot-terminal {
+    width: 95vw;
+  }
+  .boot-content {
+    height: 200px;
+    font-size: 0.75rem;
   }
 }
