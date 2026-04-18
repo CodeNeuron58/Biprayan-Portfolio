@@ -5,6 +5,7 @@ import { initContactForm } from './contact';
 import { loadComponents } from './components';
 import { renderProjects } from './projects';
 import { renderSkills } from './skills';
+import './modal';
 
 // Make mobile menu functions globally available
 (window as any).toggleMobile = toggleMobileMenu;
@@ -20,4 +21,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initNavbar();
   initScrollReveal();
   initContactForm();
+  
+  // Modal is already initialized via its constructor
 });

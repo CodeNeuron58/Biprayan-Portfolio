@@ -7,6 +7,11 @@
     "tags": ["LangGraph", "LangChain", "FastAPI", "PixiJS", "Local LLMs"],
     "links": {
       "github": "https://github.com/CodeNeuron58"
+    },
+    "details": {
+      "problem_statement": "Building a real-time AI companion that maintains context across conversations while running entirely on CPU with minimal cloud dependencies. The core challenge involves designing a memory system that can track emotional states, personality traits, and conversation history without expensive vector databases, while also managing an animated frontend that responds to AI outputs in real-time.",
+      "diagram_url": "",
+      "detailed_stack": ["LangGraph (state management)", "LangChain (agent framework)", "FastAPI (backend API)", "PixiJS (2D avatar rendering)", "Local LLMs (CPU inference)", "Persistent memory system", "Emotional context tracking"]
     }
   },
   {
@@ -17,6 +22,11 @@
     "tags": ["LangGraph", "Ollama", "FAISS", "Pydantic", "Streamlit"],
     "links": {
       "github": "https://github.com/CodeNeuron58"
+    },
+    "details": {
+      "problem_statement": "Developing a clinical decision-support system that operates entirely offline in air-gapped environments while maintaining near-zero hallucination rates. The key challenge involves creating a multi-agent architecture with a dedicated Safety Critic node that can autonomously evaluate reasoning chains, enforce strict citation requirements, and trigger re-evaluation loops when confidence scores fall below thresholds.",
+      "diagram_url": "",
+      "detailed_stack": ["LangGraph (multi-agent orchestration)", "Ollama (local LLM inference)", "FAISS (vector similarity search)", "Pydantic (structured validation)", "Streamlit (UI)", "Safety Critic agent", "Re-evaluation loop system"]
     }
   },
   {
@@ -27,6 +37,11 @@
     "tags": ["LangGraph", "Groq", "Llama-3.3-70B", "Tavily API", "Streamlit"],
     "links": {
       "github": "https://github.com/CodeNeuron58"
+    },
+    "details": {
+      "problem_statement": "Creating a multi-agent blog writing system that can draft entire articles in parallel rather than sequentially. The challenge involves designing a fan-out state graph where different agents work on sections simultaneously while maintaining coherence, integrating real-time web research via Tavily API, and ensuring the orchestrator generates structured plans that agents can execute independently.",
+      "diagram_url": "",
+      "detailed_stack": ["LangGraph (parallel state graph)", "Groq (high-speed inference)", "Llama-3.3-70B (primary model)", "Tavily API (real-time research)", "Streamlit (interface)", "Orchestrator agent", "Parallel section drafting"]
     }
   },
   {
@@ -37,6 +52,11 @@
     "tags": ["LangChain", "Cohere", "FAISS", "HuggingFace", "Streamlit"],
     "links": {
       "github": "https://github.com/CodeNeuron58"
+    },
+    "details": {
+      "problem_statement": "Building a video content analysis system that can extract transcripts, generate embeddings, and enable semantic Q&A without per-query costs. The main challenge involves efficiently processing long-form video transcripts, creating meaningful sentence-level embeddings with HuggingFace transformers, and implementing FAISS vector retrieval that can accurately cite specific video segments in responses.",
+      "diagram_url": "",
+      "detailed_stack": ["LangChain (RAG framework)", "Cohere (embedding model)", "FAISS (vector database)", "HuggingFace (sentence transformers)", "Streamlit (UI)", "YouTube transcript extraction", "Semantic search", "Source citation system"]
     }
   },
   {
@@ -47,6 +67,11 @@
     "tags": ["scikit-learn", "LightGBM", "TF-IDF", "Python"],
     "links": {
       "github": "https://github.com/CodeNeuron58"
+    },
+    "details": {
+      "problem_statement": "Developing a sentiment classification model that can handle noisy, unclean real-world text data with high accuracy. The core challenge involved improving upon a 65% Random Forest baseline by implementing TF-IDF vectorization to capture meaningful features from messy text, and using LightGBM's gradient boosting to handle class imbalance and feature importance effectively.",
+      "diagram_url": "",
+      "detailed_stack": ["scikit-learn (ML utilities)", "LightGBM (gradient boosting)", "TF-IDF (feature extraction)", "Python (implementation)", "Data preprocessing pipeline", "Cross-validation", "Feature importance analysis"]
     }
   }
 ]
