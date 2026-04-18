@@ -1,0 +1,1095 @@
+// Terminal Component Styles
+
+// Boot Sequence Overlay
+.boot-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boot-terminal {
+  width: 600px;
+  max-width: 90vw;
+  background: #0f172a;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 40px rgba(16, 185, 129, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.boot-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(16, 185, 129, 0.05);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.boot-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  
+  &.red { background: #ff5f56; }
+  &.yellow { background: #ffbd2e; }
+  &.green { background: #27c93f; }
+}
+
+.boot-title {
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.boot-content {
+  padding: 20px;
+  height: 300px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.boot-line {
+  margin-bottom: 4px;
+  
+  &.boot-info { color: var(--text-dim); }
+  &.boot-success { color: #00ff41; }
+  &.boot-warning { color: #ffb000; }
+  &.boot-error { color: #ff5f56; }
+}
+
+.boot-cursor {
+  padding: 0 20px 20px;
+  
+  .cursor-block {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: #00ff41;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+// Typing Cursor
+.typing-cursor {
+  display: inline-block;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-left: 2px;
+}
+
+// Terminal Prompts
+.terminal-prompt {
+  color: #00ff41;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.terminal-command {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.terminal-output {
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  margin: 8px 0;
+  padding-left: 16px;
+}
+
+// Secret Terminal (Easter Egg)
+.hero-secret-terminal {
+  position: absolute;
+  bottom: 100px;
+  right: 60px;
+  width: 280px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.secret-terminal-header {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.secret-input-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.secret-prompt {
+  color: #00ff41;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.secret-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 4px 0;
+  outline: none;
+  
+  &:focus {
+    border-bottom-color: var(--accent);
+  }
+  
+  &::placeholder {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+  }
+}
+
+.secret-output {
+  max-height: 150px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.secret-cmd-line {
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.secret-response {
+  color: #00d4ff;
+  margin-bottom: 8px;
+  
+  pre {
+    margin: 0;
+    font-size: 0.6rem;
+    line-height: 1.3;
+    color: var(--accent);
+  }
+}
+
+.secret-error {
+  color: #ff5f56;
+}
+
+// Terminal Window Chrome
+.terminal-window {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background: rgba(16, 185, 129, 0.05);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+    
+    .terminal-btn {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      
+      &.close { background: #ff5f56; }
+      &.minimize { background: #ffbd2e; }
+      &.maximize { background: #27c93f; }
+    }
+    
+    .terminal-title {
+      margin-left: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+  }
+  
+  .terminal-body {
+    padding: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+  }
+}
+
+// Command-style Buttons
+.btn-terminal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 6px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  &::before {
+    content: '[~/portfolio] $';
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+  
+  &:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  &.btn-primary::after {
+    content: './run.sh';
+  }
+  
+  &.btn-secondary::after {
+    content: 'cat resume.pdf';
+  }
+}
+
+// Scan Line Effect
+.scan-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+// Glitch Effect
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+  }
+  25% {
+    transform: translate(-2px, 2px);
+    text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+  }
+  50% {
+    transform: translate(2px, -2px);
+    text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+  }
+  75% {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 0 #ff00c1, -2px 0 #00fff9;
+  }
+  100% {
+    transform: translate(0);
+    text-shadow: -2px 0 #ff00c1, 2px 0 #00fff9;
+  }
+}
+
+.glitch-text {
+  &:hover {
+    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  }
+}
+
+// Progress Bar (Terminal Style)
+.terminal-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  
+  .progress-bar {
+    width: 200px;
+    height: 8px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #00d4ff);
+      width: 0%;
+      transition: width 0.5s ease;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 20px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
+        animation: shimmer 1.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-20px); }
+  100% { transform: translateX(20px); }
+}
+
+// Hero Terminal Window
+.hero-terminal-window {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  margin-bottom: 32px;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+  
+  .terminal-body {
+    padding: 16px 20px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    
+    p {
+      margin: 0;
+      
+      &.active {
+        color: var(--terminal-green);
+      }
+    }
+  }
+}
+
+.success-text {
+  color: var(--terminal-green);
+  font-weight: 600;
+}
+
+// Terminal-style Buttons
+.btn-terminal {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  .btn-prompt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  
+  .btn-command {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  
+  &:hover {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+    transform: translateY(-2px);
+    
+    .btn-command {
+      color: var(--terminal-green);
+    }
+  }
+}
+
+// Scroll indicator
+.scroll-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+// About Section Terminal Styles
+.terminal-cmd {
+  font-family: var(--font-mono);
+  color: var(--terminal-green);
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.about-terminal {
+  margin-bottom: 32px;
+  max-width: 800px;
+  
+  .about-terminal-body {
+    p {
+      margin-bottom: 16px;
+      line-height: 1.7;
+      
+      &:last-of-type {
+        margin-bottom: 24px;
+      }
+    }
+    
+    .terminal-highlight {
+      color: var(--terminal-cyan);
+      font-weight: 600;
+    }
+  }
+}
+
+.terminal-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  
+  .meta-icon {
+    font-size: 1rem;
+  }
+  
+  .meta-text {
+    &.status-online {
+      color: var(--terminal-green);
+      
+      &::before {
+        content: '● ';
+        animation: pulse 2s infinite;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// Projects Terminal Styles
+.projects-terminal {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.projects-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+  
+  .filter-prompt {
+    font-family: var(--font-mono);
+    color: var(--terminal-green);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .filter-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    padding: 4px 0;
+    outline: none;
+    
+    &::placeholder {
+      color: var(--text-muted);
+    }
+    
+    &:focus {
+      border-bottom-color: var(--accent);
+    }
+  }
+}
+
+// Terminal Project Cards
+.terminal-project {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
+    transform: translateY(-4px);
+    
+    .project-readme-hint {
+      opacity: 1;
+    }
+  }
+  
+  .project-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .project-file-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+  
+  .project-info {
+    flex: 1;
+  }
+  
+  .project-name {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  
+  .project-path {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  
+  .github-link {
+    color: var(--text-muted);
+    transition: color 0.2s;
+    
+    &:hover {
+      color: var(--accent);
+    }
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  .project-meta {
+    display: flex;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    
+    .project-permissions {
+      color: var(--terminal-cyan);
+    }
+  }
+  
+  .project-desc {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 4px;
+      color: var(--accent);
+    }
+  }
+  
+  .project-readme-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    
+    .readme-icon {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Skills Terminal Styles
+.skills-terminal {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.install-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: rgba(16, 185, 129, 0.05);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  
+  .install-status {
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--terminal-cyan));
+      width: 0%;
+      transition: width 1.5s ease;
+    }
+  }
+  
+  .install-percent {
+    color: var(--terminal-green);
+    font-weight: 600;
+  }
+}
+
+.install-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: rgba(0, 255, 65, 0.1);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--terminal-green);
+  
+  .success-icon {
+    font-weight: 600;
+  }
+}
+
+// Skill Package Cards
+.skill-package {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.1);
+  }
+  
+  .package-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    
+    .package-manager {
+      color: var(--terminal-amber);
+      font-weight: 600;
+    }
+    
+    .package-name {
+      color: var(--text-dim);
+    }
+  }
+  
+  .package-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    
+    .package-status {
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    
+    .package-bar {
+      flex: 1;
+      height: 4px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: 2px;
+      overflow: hidden;
+      
+      .package-fill {
+        height: 100%;
+        background: var(--accent);
+        width: 0%;
+        transition: width 0.8s ease;
+      }
+    }
+  }
+  
+  .package-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .skill-package-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    border-radius: 4px;
+    color: var(--text-dim);
+    animation: fadeInUp 0.3s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+    
+    .skill-check {
+      color: var(--terminal-green);
+      font-size: 0.7rem;
+    }
+    
+    .skill-name {
+      color: var(--text);
+    }
+  }
+  
+  .package-success {
+    margin-top: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--terminal-green);
+    opacity: 0;
+    animation: fadeIn 0.5s ease 1s forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+// Terminal File Cards
+.terminal-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+    transform: translateY(-4px);
+  }
+  
+  .file-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+  
+  .stat-number {
+    font-family: var(--font-mono);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 4px;
+    
+    &.glitch-number {
+      position: relative;
+      
+      &::after {
+        content: '%';
+        font-size: 1.5rem;
+        margin-left: 2px;
+      }
+    }
+  }
+  
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+}
+
+// System Navbar
+.system-navbar {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.2) !important;
+  font-family: var(--font-mono) !important;
+  
+  .nav-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      
+      &.online {
+        background: var(--terminal-green);
+        box-shadow: 0 0 8px var(--terminal-green);
+        animation: pulse 2s infinite;
+      }
+    }
+    
+    .nav-path {
+      font-size: 0.8rem;
+      color: var(--terminal-cyan);
+      font-weight: 500;
+    }
+  }
+  
+  .terminal-nav {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    
+    a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      text-transform: lowercase;
+      transition: color 0.2s;
+      position: relative;
+      
+      &:hover {
+        color: var(--accent);
+      }
+      
+      &::before {
+        content: './';
+        opacity: 0.5;
+      }
+    }
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    .terminal-resume {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+      
+      &:hover {
+        color: var(--accent);
+      }
+      
+      .resume-icon {
+        font-size: 0.9rem;
+      }
+    }
+    
+    .nav-clock {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      min-width: 70px;
+      text-align: right;
+    }
+  }
+}
+
+// Contact Terminal Styles
+.contact-terminal {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-terminal-body {
+  .contact-header {
+    margin-bottom: 32px;
+    
+    .contact-headline {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+      
+      em {
+        color: var(--terminal-cyan);
+        font-style: normal;
+      }
+    }
+    
+    .contact-sub {
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+  }
+}
+
+.terminal-form {
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .terminal-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--terminal-green);
+    margin-bottom: 8px;
+    
+    .terminal-prompt {
+      margin-right: 8px;
+    }
+  }
+  
+  .terminal-input {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 6px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s;
+    
+    &::placeholder {
+      color: var(--text-muted);
+    }
+    
+    &:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+    }
+  }
+  
+  textarea.terminal-input {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .terminal-btn-submit {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 28px;
+    background: transparent;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    .btn-prompt {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+    
+    .btn-command {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    
+    &:hover {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--accent);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+      
+      .btn-command {
+        color: var(--terminal-green);
+      }
+    }
+  }
+}

@@ -1,4 +1,7 @@
-import { initParticles } from './particles';
+import { initThreeScene } from '../three/scene';
+import { createBootSequence } from './boot';
+import { initSmoothScroll } from './smooth-scroll';
+import { initHeroAnimation, initCommandHistory } from './hero';
 import { initNavbar, toggleMobileMenu, closeMobileMenu } from './nav';
 import { initScrollReveal } from './reveal';
 import { initContactForm } from './contact';
@@ -14,11 +17,25 @@ import './modal';
 
 // Initialize all modules when DOM is loaded
 document.addEventListener('DOMContentLoaded', async () => {
+  // Start boot sequence immediately
+  createBootSequence();
+  
+  // Initialize smooth scrolling
+  initSmoothScroll();
+  
+  // Load components
   await loadComponents();
   await renderProjects();
   await renderSkills();
   
-  initParticles();
+  // Initialize Three.js background
+  initThreeScene();
+  
+  // Initialize hero animations (will wait for bootComplete event)
+  initHeroAnimation();
+  initCommandHistory();
+  
+  // Initialize other modules
   initNavbar();
   initScrollReveal();
   initContactForm();

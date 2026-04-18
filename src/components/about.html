@@ -1,33 +1,45 @@
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-label reveal">&gt; about_me.txt</div>
-  <div class="bento-grid">
-    <!-- Bio - Spans 2 columns and 2 rows for prominence -->
-    <div class="about-bio bento-card bento-span-2-col bento-span-2-row reveal reveal-delay-1">
-      <p>I'm an AI/ML engineer focused on <strong>LLMs and agentic systems</strong> at IIT Guwahati. My work centers on pushing the boundaries of what local models can achieve - prioritizing efficiency, privacy, and complex reasoning pipelines over cloud dependencies.</p>
+  <div class="section-label reveal terminal-cmd">$ cat about_me.txt</div>
+  
+  <div class="terminal-window about-terminal reveal">
+    <div class="terminal-header">
+      <span class="terminal-btn close"></span>
+      <span class="terminal-btn minimize"></span>
+      <span class="terminal-btn maximize"></span>
+      <span class="terminal-title">about_me.txt — ~/portfolio</span>
+    </div>
+    <div class="terminal-body about-terminal-body">
+      <p>I'm an AI/ML engineer focused on <strong class="terminal-highlight">LLMs and agentic systems</strong> at IIT Guwahati. My work centers on pushing the boundaries of what local models can achieve - prioritizing efficiency, privacy, and complex reasoning pipelines over cloud dependencies.</p>
       <p>I don't just train models; I architect ecosystems where agents communicate, verify, and execute multi-step workflows. From zero-cloud-cost inference to full-stack AI products - I build things that actually ship.</p>
-      <div class="about-meta">
-        <span>£</span>
-        B.S. AI & Data Science - IIT Guwahati (Expected 2028)
+      
+      <div class="about-meta terminal-meta">
+        <span class="meta-icon">📍</span>
+        <span class="meta-text">B.S. AI & Data Science — IIT Guwahati (Expected 2028)</span>
       </div>
-      <div class="about-meta" style="margin-top:8px">
-        <span>£</span>
-        Open to internships & collaborations
+      <div class="about-meta terminal-meta">
+        <span class="meta-icon">💼</span>
+        <span class="meta-text status-online">Open to internships & collaborations</span>
       </div>
     </div>
-    
-    <!-- Stats act as smaller bento blocks -->
-    <div class="bento-card bento-stat reveal reveal-delay-2">
-      <div class="stat-number">5+</div>
-      <div class="stat-label">Projects Built</div>
+  </div>
+  
+  <div class="bento-grid">
+    <!-- Stats as terminal file cards -->
+    <div class="bento-card bento-stat terminal-file reveal reveal-delay-1">
+      <div class="file-icon">📁</div>
+      <div class="stat-number" data-count="5">0</div>
+      <div class="stat-label">projects/</div>
     </div>
-    <div class="bento-card bento-stat reveal reveal-delay-3">
-      <div class="stat-number">2</div>
-      <div class="stat-label">Certifications</div>
+    <div class="bento-card bento-stat terminal-file reveal reveal-delay-2">
+      <div class="file-icon">📜</div>
+      <div class="stat-number" data-count="2">0</div>
+      <div class="stat-label">certificates/</div>
     </div>
-    <div class="bento-card bento-stat bento-span-2-col reveal reveal-delay-4">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Local AI Enthusiast & Advocate</div>
+    <div class="bento-card bento-stat bento-span-2-col terminal-file reveal reveal-delay-3">
+      <div class="file-icon">🤖</div>
+      <div class="stat-number glitch-number" data-count="100">0</div>
+      <div class="stat-label">local_ai_enthusiast.status</div>
     </div>
   </div>
 </section>
