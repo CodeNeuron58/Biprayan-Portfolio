@@ -16,14 +16,22 @@ export async function renderSkills(): Promise<void> {
   try {
     const data: SkillsData = skillsData;
     
-    container.innerHTML = data.categories.map((category, index) => `
-      <div class="reveal reveal-delay-${(index % 2) + 1}">
-        <div class="skill-group-label"><span>"</span>${category.name}<span>"</span>: [</div>
-        <div class="skill-tags">
-          ${category.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+    container.innerHTML = data.categories.map((category, index) => {
+      // Make the first category (Languages) span 2 columns for asymmetrical layout
+      const spanClass = index === 0 ? 'bento-span-2-col' : '';
+      const delayClass = (index % 4) + 1;
+      
+      return `
+        <div class="skill-bento-card ${spanClass} reveal reveal-delay-${delayClass}">
+          <div class="skill-bento-label">
+            <span>"</span>${category.name}<span>"</span>: [
+          </div>
+          <div class="skill-bento-tags">
+            ${category.skills.map(skill => `<span class="skill-bento-tag">${skill}</span>`).join('')}
+          </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
   } catch (error) {
     console.error('Error rendering skills:', error);

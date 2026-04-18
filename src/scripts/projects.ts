@@ -1,3 +1,9 @@
+interface ProjectDetails {
+  problem_statement: string;
+  diagram_url?: string;
+  detailed_stack: string[];
+}
+
 interface Project {
   id: string;
   name: string;
@@ -7,9 +13,11 @@ interface Project {
   links: {
     github?: string;
   };
+  details?: ProjectDetails;
 }
 
 import projectsData from '../data/projects.json';
+import { modal } from './modal';
 
 export async function renderProjects(): Promise<void> {
   const container = document.getElementById('projects-container');
@@ -19,12 +27,12 @@ export async function renderProjects(): Promise<void> {
     const projects: Project[] = projectsData;
     
     container.innerHTML = projects.map((project, index) => `
-      <div class="project-card reveal reveal-delay-${(index % 2) + 1}">
+      <div class="project-card reveal reveal-delay-${(index % 2) + 1}" data-project="${project.id}" style="cursor: pointer;">
         <div class="project-card-header">
           <div class="project-name">${project.name}</div>
           <div class="project-links">
             ${project.links.github ? `
-              <a href="${project.links.github}" target="_blank" title="GitHub">
+              <a href="${project.links.github}" target="_blank" title="GitHub" onclick="event.stopPropagation()">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                 </svg>
@@ -39,6 +47,17 @@ export async function renderProjects(): Promise<void> {
         </div>
       </div>
     `).join('');
+
+    // Add click event listeners to project cards
+    const projectCards = container.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const projectId = card.getAttribute('data-project');
+        if (projectId) {
+          modal.open(projectId);
+        }
+      });
+    });
 
   } catch (error) {
     console.error('Error rendering projects:', error);
