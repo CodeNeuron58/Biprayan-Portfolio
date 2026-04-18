@@ -7,17 +7,14 @@ interface SkillsData {
   categories: SkillCategory[];
 }
 
+import skillsData from '../data/skills.json';
+
 export async function renderSkills(): Promise<void> {
   const container = document.getElementById('skills-container');
   if (!container) return;
 
   try {
-    const response = await fetch('/data/skills.json');
-    if (!response.ok) {
-      throw new Error(`Failed to load skills: ${response.status}`);
-    }
-
-    const data: SkillsData = await response.json();
+    const data: SkillsData = skillsData;
     
     container.innerHTML = data.categories.map((category, index) => `
       <div class="reveal reveal-delay-${(index % 2) + 1}">

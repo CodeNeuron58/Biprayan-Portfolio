@@ -9,17 +9,14 @@ interface Project {
   };
 }
 
+import projectsData from '../data/projects.json';
+
 export async function renderProjects(): Promise<void> {
   const container = document.getElementById('projects-container');
   if (!container) return;
 
   try {
-    const response = await fetch('/data/projects.json');
-    if (!response.ok) {
-      throw new Error(`Failed to load projects: ${response.status}`);
-    }
-
-    const projects: Project[] = await response.json();
+    const projects: Project[] = projectsData;
     
     container.innerHTML = projects.map((project, index) => `
       <div class="project-card reveal reveal-delay-${(index % 2) + 1}">
