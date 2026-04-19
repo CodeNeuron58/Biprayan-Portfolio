@@ -510,6 +510,36 @@
   }
 }
 
+// Terminal credentials system block (below STATUS)
+.terminal-divider {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin: 12px 0;
+  opacity: 0.6;
+}
+
+.terminal-credentials {
+  font-family: var(--font-mono);
+  margin-top: 8px;
+  
+  .terminal-cmd-line {
+    color: var(--terminal-green);
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+  }
+  
+  .terminal-credential {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    
+    &:first-of-type {
+      color: var(--terminal-cyan);
+    }
+  }
+}
+
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -892,6 +922,14 @@
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .stat-sublabel {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    margin-top: 4px;
   }
 }
 
