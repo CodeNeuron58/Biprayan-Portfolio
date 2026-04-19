@@ -19,10 +19,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-# Force Node.js 24 for all actions to fix deprecation warnings
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   # Build job
   build:
