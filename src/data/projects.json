@@ -6,7 +6,7 @@
     "description": "Zero-cloud-cost real-time AI companion running entirely on CPU using free-tier APIs and small local models. Features persistent memory, emotional context tracking, and personality state management via LangGraph - plus a full-stack animated 2D avatar frontend.",
     "tags": ["LangGraph", "LangChain", "FastAPI", "PixiJS", "Local LLMs"],
     "links": {
-      "github": "https://github.com/CodeNeuron58"
+      "github": "https://github.com/CodeNeuron58/Yumi"
     },
     "details": {
       "problem_statement": "Building a real-time AI companion that maintains context across conversations while running entirely on CPU with minimal cloud dependencies. The core challenge involves designing a memory system that can track emotional states, personality traits, and conversation history without expensive vector databases, while also managing an animated frontend that responds to AI outputs in real-time.",
@@ -21,7 +21,7 @@
     "description": "100% local, air-gapped clinical AI agent over a FAISS vector store. Features a Safety Critic node that autonomously evaluates reasoning, enforces citations, and triggers re-evaluation loops - cutting hallucination rate in complex multi-drug queries to near zero.",
     "tags": ["LangGraph", "Ollama", "FAISS", "Pydantic", "Streamlit"],
     "links": {
-      "github": "https://github.com/CodeNeuron58"
+      "github": "https://github.com/CodeNeuron58/RxGuard"
     },
     "details": {
       "problem_statement": "Developing a clinical decision-support system that operates entirely offline in air-gapped environments while maintaining near-zero hallucination rates. The key challenge involves creating a multi-agent architecture with a dedicated Safety Critic node that can autonomously evaluate reasoning chains, enforce strict citation requirements, and trigger re-evaluation loops when confidence scores fall below thresholds.",
@@ -36,7 +36,7 @@
     "description": "Multi-agent blog system with a fan-out state graph enabling parallel section drafting - reducing content generation time by 60% vs sequential execution. Integrated Tavily real-time web research; orchestrator generates structured plans with strict goals and wordcount targets.",
     "tags": ["LangGraph", "Groq", "Llama-3.3-70B", "Tavily API", "Streamlit"],
     "links": {
-      "github": "https://github.com/CodeNeuron58"
+      "github": "https://github.com/CodeNeuron58/langgraph-blog-agent"
     },
     "details": {
       "problem_statement": "Creating a multi-agent blog writing system that can draft entire articles in parallel rather than sequentially. The challenge involves designing a fan-out state graph where different agents work on sections simultaneously while maintaining coherence, integrating real-time web research via Tavily API, and ensuring the orchestrator generates structured plans that agents can execute independently.",
@@ -51,7 +51,7 @@
     "description": "End-to-end RAG pipeline to extract, summarize, and semantically query YouTube transcripts using HuggingFace sentence-transformer embeddings and FAISS vector retrieval. Supports real-time Q&A with automated source citation at zero per-query cost.",
     "tags": ["LangChain", "Cohere", "FAISS", "HuggingFace", "Streamlit"],
     "links": {
-      "github": "https://github.com/CodeNeuron58"
+      "github": "https://github.com/CodeNeuron58/Video-RAG-Analyst"
     },
     "details": {
       "problem_statement": "Building a video content analysis system that can extract transcripts, generate embeddings, and enable semantic Q&A without per-query costs. The main challenge involves efficiently processing long-form video transcripts, creating meaningful sentence-level embeddings with HuggingFace transformers, and implementing FAISS vector retrieval that can accurately cite specific video segments in responses.",
@@ -66,7 +66,7 @@
     "description": "Improved classification accuracy from 65% (Random Forest baseline) to 86% on a noisy real-world dataset using TF-IDF vectorization and LightGBM - a 32% relative improvement on challenging, unclean data.",
     "tags": ["scikit-learn", "LightGBM", "TF-IDF", "Python"],
     "links": {
-      "github": "https://github.com/CodeNeuron58"
+      "github": "https://github.com/CodeNeuron58/Sentiment-Classification-MLOps"
     },
     "details": {
       "problem_statement": "Developing a sentiment classification model that can handle noisy, unclean real-world text data with high accuracy. The core challenge involved improving upon a 65% Random Forest baseline by implementing TF-IDF vectorization to capture meaningful features from messy text, and using LightGBM's gradient boosting to handle class imbalance and feature importance effectively.",
