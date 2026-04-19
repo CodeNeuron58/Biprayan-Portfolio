@@ -102,7 +102,7 @@ export function initCommandHistory(): void {
   const commands = [
     { command: 'whoami', output: 'biprayan_choudhuri' },
     { command: 'cat skills.txt', output: 'AI/ML • LangGraph • Python • RAG' },
-    { command: 'pwd', output: '~/portfolio/iit-guwahati' },
+    { command: 'pwd', output: '~/biprayan/systems' },
   ];
 
   // Add hidden terminal for easter egg
@@ -174,7 +174,7 @@ export function initCommandHistory(): void {
   ╚═════╝ ╚═╝╚═╝     ╚═╝     ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝
           
   OS: AI/ML Engineer Portfolio
-  Host: IIT Guwahati
+  Host: AI/ML Systems Division
   Kernel: LangGraph, LangChain, PyTorch
   Uptime: Always learning
           </pre>
