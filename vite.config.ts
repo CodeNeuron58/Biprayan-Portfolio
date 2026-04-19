@@ -4,7 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   root: '.',
-  base: '/Biprayan-Portfolio/',
+  base: '/',
   publicDir: 'public',
   build: {
     outDir: 'docs',
