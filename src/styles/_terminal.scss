@@ -262,12 +262,6 @@
   transition: all 0.3s ease;
   cursor: pointer;
   
-  &::before {
-    content: '[~/portfolio] $';
-    color: var(--text-muted);
-    font-size: 0.75rem;
-  }
-  
   &:hover {
     background: rgba(16, 185, 129, 0.1);
     border-color: var(--accent);
@@ -275,13 +269,6 @@
     transform: translateY(-2px);
   }
   
-  &.btn-primary::after {
-    content: './run.sh';
-  }
-  
-  &.btn-secondary::after {
-    content: 'cat resume.pdf';
-  }
 }
 
 // Scan Line Effect
@@ -380,21 +367,22 @@
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 8px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  margin-bottom: 32px;
+  padding: 0;
   max-width: 400px;
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
   
   .terminal-body {
-    padding: 16px 20px;
+    padding: 20px 24px;
     font-family: var(--font-mono);
     font-size: 0.85rem;
-    line-height: 1.8;
     color: var(--text-dim);
     
     p {
-      margin: 0;
+      margin: 0 0 10px 0;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
       
       &.active {
         color: var(--terminal-green);
