@@ -1,76 +1,38 @@
-export function initNavbar(): void {
-  const navbar = document.getElementById('navbar');
-  if (!navbar) return;
+// Nav: scroll-aware styling, mobile menu, and active-section indicator.
 
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+export function renderNav(): void {
+  const nav = document.getElementById("nav");
+  const burger = document.getElementById("nav-burger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  if (!nav || !burger || !mobileMenu) return;
+
+  const onScroll = (): void => {
+    nav.classList.toggle("is-scrolled", window.scrollY > 12);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const setMenu = (open: boolean): void => {
+    mobileMenu.classList.toggle("is-open", open);
+    mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+
+  burger.addEventListener("click", () => {
+    const open = !mobileMenu.classList.contains("is-open");
+    setMenu(open);
   });
 
-  // Initialize clock
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  // Update path based on scroll position
-  initPathTracking();
-}
-
-function updateClock(): void {
-  const clockEl = document.getElementById('nav-clock');
-  if (!clockEl) return;
-  
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-US', { 
-    hour12: false, 
-    hour: '2-digit', 
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  clockEl.textContent = time;
-}
-
-function initPathTracking(): void {
-  const pathEl = document.getElementById('nav-path');
-  if (!pathEl) return;
-
-  const sections = ['about', 'projects', 'skills', 'contact'];
-  const defaultPath = '~/portfolio';
-
-  // Use Intersection Observer to track active section
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const section = entry.target.id;
-          pathEl.textContent = `~/${section}`;
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  sections.forEach((id) => {
-    const section = document.getElementById(id);
-    if (section) observer.observe(section);
+  // Close on link click
+  mobileMenu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setMenu(false));
   });
 
-  // Reset to default when at top
-  window.addEventListener('scroll', () => {
-    if (window.scrollY < 100) {
-      pathEl.textContent = defaultPath;
+  // Close on escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+      setMenu(false);
     }
   });
-}
-
-export function toggleMobileMenu(): void {
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (!mobileMenu) return;
-  
-  mobileMenu.classList.toggle('open');
-}
-
-export function closeMobileMenu(): void {
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (!mobileMenu) return;
-  
-  mobileMenu.classList.remove('open');
 }

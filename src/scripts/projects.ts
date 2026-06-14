@@ -1,3 +1,8 @@
+// Renders the selected-work list and wires the case-study modal.
+
+import projectsData from "../data/projects.json";
+import { openCaseStudy } from "./modal";
+
 interface ProjectDetails {
   problem_statement: string;
   diagram_url?: string;
@@ -10,68 +15,54 @@ interface Project {
   date: string;
   description: string;
   tags: string[];
-  links: {
-    github?: string;
-  };
+  links: { github?: string; live?: string };
   details?: ProjectDetails;
 }
 
-import projectsData from '../data/projects.json';
-import { modal } from './modal';
+const projects = projectsData as Project[];
 
-export async function renderProjects(): Promise<void> {
-  const container = document.getElementById('projects-container');
-  if (!container) return;
+const escapeHtml = (s: string): string =>
+  s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c] as string)
+  );
 
-  try {
-    const projects: Project[] = projectsData;
-    
-    container.innerHTML = projects.map((project, index) => `
-      <div class="project-card terminal-project reveal reveal-delay-${(index % 2) + 1}" data-project="${project.id}" style="cursor: pointer;">
-        <div class="project-card-header">
-          <div class="project-file-icon">📂</div>
-          <div class="project-info">
-            <div class="project-name">${project.name}</div>
-            <div class="project-path">~/projects/${project.id}/</div>
+export function renderWork(): void {
+  const list = document.getElementById("work-list");
+  if (!list) return;
+
+  list.innerHTML = projects
+    .map((p, i) => {
+      const index = String(i + 1).padStart(2, "0");
+      const link = p.links?.github
+        ? `<a href="${escapeHtml(p.links.github)}" target="_blank" rel="noopener">GitHub &rarr;</a>`
+        : "&mdash;";
+      return `
+        <article class="work__row reveal" role="listitem" data-delay="${(i % 4) + 1}">
+          <div class="work__row-inner">
+            <span class="work__index">${index} &middot; Project</span>
+            <h3 class="work__name">
+              <button type="button" data-case="${escapeHtml(p.id)}" class="work__open" style="all:unset; cursor:pointer;">
+                ${escapeHtml(p.name)}
+              </button>
+            </h3>
           </div>
-          <div class="project-links">
-            ${project.links.github ? `
-              <a href="${project.links.github}" target="_blank" title="GitHub" class="github-link" onclick="event.stopPropagation()">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-              </a>
-            ` : ''}
+          <p class="work__summary">${escapeHtml(p.description)}</p>
+          <div class="work__chips">
+            ${p.tags.map((t) => `<span class="chip">${escapeHtml(t)}</span>`).join("")}
           </div>
-        </div>
-        <div class="project-meta">
-          <span class="project-date">${project.date}</span>
-          <span class="project-permissions">-rw-r--r--</span>
-        </div>
-        <p class="project-desc">${project.description}</p>
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-        </div>
-        <div class="project-readme-hint">
-          <span class="readme-icon">📄</span>
-          <span>README.md — Click to view</span>
-        </div>
-      </div>
-    `).join('');
+          <div class="work__meta">
+            <span>${escapeHtml(p.date)}</span>
+            <span>${link}</span>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 
-    // Add click event listeners to project cards
-    const projectCards = container.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const projectId = card.getAttribute('data-project');
-        if (projectId) {
-          modal.open(projectId);
-        }
-      });
+  list.querySelectorAll<HTMLButtonElement>(".work__open").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-case");
+      if (id) openCaseStudy(id);
     });
-
-  } catch (error) {
-    console.error('Error rendering projects:', error);
-    container.innerHTML = '<p>Error loading projects. Please try again later.</p>';
-  }
+  });
 }
