@@ -1,35 +1,31 @@
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#skills" onclick="closeMobile()">Skills</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" style="color:var(--terminal-cyan)">Resume</a>
-</div>
-
-<!-- NAV -->
-<nav id="navbar" class="system-navbar">
-  <div class="nav-status">
-    <span class="status-indicator online"></span>
-    <span class="nav-path" id="nav-path">~/portfolio</span>
-  </div>
-  
-  <ul class="nav-links terminal-nav">
-    <li><a href="#about" data-path="~/about">about</a></li>
-    <li><a href="#projects" data-path="~/projects">projects</a></li>
-    <li><a href="#skills" data-path="~/skills">skills</a></li>
-    <li><a href="#contact" data-path="~/contact">contact</a></li>
-  </ul>
-  
-  <div class="nav-right">
-    <a class="nav-resume terminal-resume" href="./Biprayan_Choudhuri_Resume_v4.pdf" target="_blank">
-      <span class="resume-icon">📄</span>
-      <span>resume.pdf</span>
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="container nav__inner">
+    <a href="#top" class="nav__brand" aria-label="Biprayan Choudhuri - home">
+      <span class="nav__mark" aria-hidden="true">B</span>
+      <span>Biprayan Choudhuri</span>
     </a>
-    <span class="nav-clock" id="nav-clock">00:00:00</span>
-  </div>
-  
-  <div class="hamburger" id="hamburger" onclick="toggleMobile()">
-    <span></span><span></span><span></span>
+    <ul class="nav__links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav__cta" href="mailto:biprayanc@gmail.com">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Open to work</span>
+    </a>
+    <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <a href="#work">Selected work</a>
+  <a href="#capabilities">Capabilities</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Stack</a>
+  <a href="#contact">Contact</a>
+  <a href="mailto:biprayanc@gmail.com" style="font-family: var(--ff-mono); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); border: 0;">biprayanc@gmail.com &rarr;</a>
+</div>

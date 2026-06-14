@@ -1,45 +1,38 @@
-import { initThreeScene } from '../three/scene';
-import { createBootSequence } from './boot';
-import { initSmoothScroll } from './smooth-scroll';
-import { initHeroAnimation, initCommandHistory } from './hero';
-import { initNavbar, toggleMobileMenu, closeMobileMenu } from './nav';
-import { initScrollReveal } from './reveal';
-import { initContactForm } from './contact';
-import { loadComponents } from './components';
-import { renderProjects } from './projects';
-import { renderSkills } from './skills';
-import { initAnimations } from './animations';
-import './modal';
+// Main entry point for the recruiter portfolio.
+// Composes the page from HTML partials, renders data, and wires up behavior.
 
-// Make mobile menu functions globally available
-(window as any).toggleMobile = toggleMobileMenu;
-(window as any).closeMobile = closeMobileMenu;
+import { renderNav } from "./nav";
+import { renderWork } from "./projects";
+import { renderSkills } from "./skills";
+import { renderContact, initContactForm } from "./contact";
+import { renderModal } from "./modal";
+import { initReveal } from "./reveal";
 
-// Initialize all modules when DOM is loaded
-document.addEventListener('DOMContentLoaded', async () => {
-  // Start boot sequence immediately
-  createBootSequence();
-  
-  // Initialize smooth scrolling
-  initSmoothScroll();
-  
-  // Load components
-  await loadComponents();
-  await renderProjects();
-  await renderSkills();
-  
-  // Initialize Three.js background
-  initThreeScene();
-  
-  // Initialize hero animations (will wait for bootComplete event)
-  initHeroAnimation();
-  initCommandHistory();
-  
-  // Initialize other modules
-  initNavbar();
-  initScrollReveal();
+async function loadComponent(id: string, path: string): Promise<void> {
+  const res = await fetch(path, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`Failed to load ${path}`);
+  const html = await res.text();
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = html;
+}
+
+async function loadAll(): Promise<void> {
+  await Promise.all([
+    loadComponent("nav-root", "/src/components/navbar.html").then(renderNav),
+    loadComponent("hero-root", "/src/components/hero.html"),
+    loadComponent("about-root", "/src/components/about.html"),
+    loadComponent("work-root", "/src/components/work.html").then(renderWork),
+    loadComponent("capabilities-root", "/src/components/capabilities.html"),
+    loadComponent("skills-root", "/src/components/skills.html").then(renderSkills),
+    loadComponent("experience-root", "/src/components/experience.html"),
+    loadComponent("contact-root", "/src/components/contact.html").then(renderContact),
+    loadComponent("footer-root", "/src/components/footer.html"),
+    loadComponent("modal-root", "/src/components/modal.html").then(renderModal),
+  ]);
+  initReveal();
   initContactForm();
-  initAnimations();
-  
-  // Modal is already initialized via its constructor
+}
+
+loadAll().catch((err) => {
+  console.error("[portfolio] failed to bootstrap:", err);
 });
