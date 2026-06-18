@@ -1,17 +1,16 @@
 <section class="section" id="about">
   <div class="container">
-    <header class="section-head">
+    <header class="section-head section-head--about">
       <div class="section-head__title">
         <span class="eyebrow"><span>(01) About</span></span>
-      </div>
-      <div>
-        <h2 class="h2">
-          An engineer&rsquo;s engineer, <em>obsessed with agents that actually work</em>.
+        <h2 class="h2 about__lede">
+          An engineer&rsquo;s engineer &mdash;
+          <em>obsessed with agents that actually work.</em>
         </h2>
       </div>
     </header>
 
-    <div class="about__grid">
+    <div class="about__layout">
       <div class="about__lead reveal" data-delay="1">
         <p>
           I&rsquo;m a B.S. student of Artificial Intelligence &amp; Data Science
@@ -27,14 +26,19 @@
           constraint is the reason I got into agentic systems in the first
           place, and it shapes every architecture decision I make.
         </p>
-        <p>
+        <p class="about__close">
           I&rsquo;m looking for internships and full-time roles where I can
-          keep doing exactly that: design, build, and ship AI systems that
-          are reliable enough to put in front of people who depend on them.
+          keep doing exactly that &mdash; design, build, and ship AI systems
+          that are reliable enough to put in front of people who depend on
+          them.
         </p>
       </div>
 
-      <div>
+      <aside class="about__panel reveal" data-delay="2" aria-label="At a glance">
+        <div class="about__panel-head">
+          <span class="about__panel-cap">Quick reference</span>
+          <span class="about__panel-num">01 / 06</span>
+        </div>
         <dl class="about__creds">
           <div class="about__cred">
             <dt>Based in</dt>
@@ -42,7 +46,7 @@
           </div>
           <div class="about__cred">
             <dt>Education</dt>
-            <dd>Indian Institute of Technology Guwahati &middot; B.S. Artificial Intelligence &amp; Data Science &middot; Expected 2028</dd>
+            <dd>Indian Institute of Technology Guwahati &middot; B.S. AI &amp; Data Science &middot; 2028</dd>
           </div>
           <div class="about__cred">
             <dt>Focus areas</dt>
@@ -52,12 +56,16 @@
             <dt>Languages</dt>
             <dd>English (fluent) &middot; Hindi (native) &middot; Assamese (native)</dd>
           </div>
-          <div class="about__cred">
+          <div class="about__cred about__cred--accent">
             <dt>Status</dt>
             <dd>Open to internships and full-time roles from 2026</dd>
           </div>
         </dl>
-      </div>
+        <a class="about__panel-cta" href="#contact">
+          <span>Get in touch</span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </aside>
     </div>
   </div>
 </section>
