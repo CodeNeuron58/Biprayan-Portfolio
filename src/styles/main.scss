@@ -106,8 +106,8 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 }
 
 .display {
-  font-family: var(--ff-serif);
-  font-weight: 400;
+
+
   font-size: clamp(2.6rem, 6.4vw, 5.4rem);
   line-height: 0.98;
   letter-spacing: -0.02em;
@@ -116,7 +116,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 .display em { font-style: italic; color: var(--ink-2); }
 
 .h2 {
-  font-family: var(--ff-serif);
+
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
@@ -179,7 +179,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   gap: 10px;
   padding: 12px 18px;
   border-radius: 999px;
-  font-size: 14px;
+
   font-weight: 500;
   letter-spacing: -0.005em;
   border: 1px solid transparent;
@@ -190,8 +190,8 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 .btn:hover .arrow { transform: translateX(3px); }
 
 .btn--primary {
-  background: var(--ink);
-  color: var(--bg);
+  overflow: hidden;
+
   border-color: var(--ink);
 }
 .btn--primary:hover { background: #ffffff; border-color: #ffffff; color: var(--bg); }
@@ -260,15 +260,15 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   color: var(--ink);
 }
 .nav__mark {
-  width: 26px; height: 26px;
+  width: 28px; height: 28px;
   display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--bg);
-  font-family: var(--ff-serif);
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 400;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.nav__mark img {
+  width: 100%; height: 100%;
+  display: block;
+  object-fit: contain;
 }
 .nav__links { display: none; list-style: none; gap: 4px; }
 @media (min-width: 760px) { .nav__links { display: flex; } }
@@ -329,7 +329,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 .mobile-menu a {
   display: block;
   padding: 16px 0;
-  font-family: var(--ff-serif);
+
   font-size: 32px;
   letter-spacing: -0.01em;
   border-bottom: 1px solid var(--line-soft);
@@ -431,8 +431,8 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   opacity: 0.6;
 }
 .hero__monogram-letter {
-  font-family: var(--ff-serif);
-  font-style: italic;
+
+
   font-size: clamp(7rem, 18vw, 13rem);
   line-height: 1;
   letter-spacing: -0.04em;
@@ -464,7 +464,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   align-items: baseline;
   padding-block: 12px;
   border-top: 1px solid var(--line-soft);
-  font-size: 14px;
+
 }
 .hero__panel-row:last-child { border-bottom: 1px solid var(--line-soft); }
 .hero__panel-row .label {
@@ -496,7 +496,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   gap: 6px;
 }
 .hero__meta-num {
-  font-family: var(--ff-serif);
+
   font-size: clamp(1.8rem, 2.6vw, 2.4rem);
   line-height: 1;
   letter-spacing: -0.02em;
@@ -533,7 +533,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   color: var(--ink-3);
 }
 .work__name {
-  font-family: var(--ff-serif);
+
   font-size: clamp(1.6rem, 2.4vw, 2.1rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -603,7 +603,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 .modal__body { overflow-y: auto; padding: clamp(28px, 4vw, 48px); }
 .modal__head { display: grid; gap: 12px; margin-bottom: 32px; }
 .modal__title {
-  font-family: var(--ff-serif);
+
   font-size: clamp(1.8rem, 3vw, 2.4rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -654,7 +654,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   letter-spacing: -0.02em;
 }
 .about__lede em {
-  font-style: italic;
+
   color: var(--ink-2);
   display: block;
   max-width: 26ch;
@@ -668,7 +668,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   font-size: 1rem;
 }
 .about__lead p:first-of-type::first-letter {
-  font-family: var(--ff-serif);
+
   font-size: 3.2em;
   line-height: 0.85;
   float: left;
@@ -719,7 +719,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   display: grid;
   grid-template-columns: 120px 1fr;
   gap: 20px;
-  font-size: 14px;
+
   align-items: baseline;
   padding: 14px 0;
   border-top: 1px solid var(--line-soft);
@@ -744,7 +744,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
 .about__cred--accent dd::before {
   content: "";
   width: 7px; height: 7px;
-  border-radius: 50%;
+  border-radius: 6px;
   background: var(--ok);
   box-shadow: 0 0 8px rgba(74,222,128,0.6);
   flex: 0 0 auto;
@@ -815,7 +815,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   color: var(--ink-3);
 }
 .skill__count {
-  font-family: var(--ff-serif);
+
   font-size: 1.4rem;
   letter-spacing: -0.01em;
 }
@@ -939,7 +939,7 @@ h1, h2, h3, h4 { font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; c
   .footer__cta { grid-template-columns: 1.4fr 1fr; gap: 64px; }
 }
 .footer__big {
-  font-family: var(--ff-serif);
+
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1;
   letter-spacing: -0.02em;
