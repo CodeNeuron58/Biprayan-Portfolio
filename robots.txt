@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biprayan.is-a.dev/sitemap.xml

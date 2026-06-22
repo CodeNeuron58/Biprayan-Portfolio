@@ -1,9 +1,5 @@
 // Contact form: client-side mailto composer with a graceful status message.
 
-export function renderContact(): void {
-  // No DOM injection; the form is static in contact.html.
-}
-
 export function initContactForm(): void {
   const form = document.getElementById("contact-form") as HTMLFormElement | null;
   if (!form) return;
@@ -37,8 +33,9 @@ export function initContactForm(): void {
       `Hi Biprayan,\n\n${message}\n\n` +
       `— ${name}\n${email}${company ? "\n" + company : ""}\n`;
 
-    const mailto = `mailto:biprayanc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailto =
+      `mailto:biprayanc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
-    setStatus("Opening your mail client…", true);
+    setStatus("Opening your mail client\u2026", true);
   });
 }

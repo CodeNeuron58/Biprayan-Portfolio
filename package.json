@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "serve": "vite preview --port 3000",
-    "deploy": "npm run build"
+    "deploy": "npm run build",
+    "og:build": "node scripts/build-og-image.mjs"
   },
   "keywords": [
     "portfolio",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "sass": "^1.69.0",
+    "sharp": "^0.34.5",
     "typescript": "^5.0.0",
     "vite": "^5.0.0"
   }
