@@ -1,6 +1,6 @@
 // Nav: scroll-aware styling, mobile menu, and active-section indicator.
 
-export function renderNav(): void {
+export function initNav(): void {
   const nav = document.getElementById("nav");
   const burger = document.getElementById("nav-burger");
   const mobileMenu = document.getElementById("mobile-menu");

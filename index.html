@@ -121,7 +121,38 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div id="nav-root"></div>
+    <nav class="nav" id="nav" aria-label="Primary" data-source="inline">
+    <div class="container nav__inner">
+      <a href="#top" class="nav__brand" aria-label="Biprayan Choudhuri - home">
+        <span class="nav__mark" aria-hidden="true">
+          <img src="/logo.png" alt="" width="28" height="28" />
+        </span>
+        <span class="nav__brand-name">Biprayan Choudhuri</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Stack</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav__cta" href="mailto:biprayanc@gmail.com">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Open to work</span>
+      </a>
+      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a href="#work">Selected work</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Stack</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:biprayanc@gmail.com" style="font-family: var(--ff-mono); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); border: 0;">biprayanc@gmail.com &rarr;</a>
+  </div>
 
     <main id="main">
       <!-- HERO: inlined for SEO (the JS loadComponent still replaces it for the live UI state) -->
@@ -249,10 +280,170 @@
         </div>
       </section>
 
-      <div id="work-root"></div>
-      <div id="capabilities-root"></div>
-      <div id="skills-root"></div>
-      <div id="experience-root"></div>
+      <section class="section" id="work" data-source="inline">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-head__title">
+              <span class="eyebrow"><span>(02) Selected work</span></span>
+              <h2 class="h2">
+                Five projects that show <em>how I think about AI systems</em>.
+              </h2>
+            </div>
+            <p class="lede">
+              Each one started as a real problem &mdash; a hallucinated clinical
+              answer, a video transcript no one could query, a blog draft that took
+              an hour. The list below is the work I&rsquo;m most proud of because
+              each one shipped.
+            </p>
+          </header>
+          <div class="work" id="work-list" role="list" aria-label="Selected projects"></div>
+        </div>
+      </section>
+      <section class="section" id="capabilities" data-source="inline">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-head__title">
+              <span class="eyebrow"><span>(03) Capabilities</span></span>
+              <h2 class="h2">What I can own end-to-end.</h2>
+            </div>
+            <p class="lede">
+              A short list of the things I&rsquo;ve shipped more than once and can be
+              trusted to run with. If your team needs any of this, I&rsquo;m a fast
+              ramp.
+            </p>
+          </header>
+          <div>
+            <article class="capability reveal" data-delay="1">
+              <h3 class="capability__title">Agentic systems &amp; multi-agent orchestration</h3>
+              <div>
+                <p class="capability__body">
+                  State-graph agents that fan out, verify, and re-evaluate.
+                  LangGraph architectures with safety-critic nodes, Pydantic-typed
+                  contracts between agents, and structured handoffs. I&rsquo;ve
+                  shipped agents that pass evaluation harnesses, not just demos.
+                </p>
+                <ul class="capability__list">
+                  <li class="chip">LangGraph</li>
+                  <li class="chip">LangChain</li>
+                  <li class="chip">Multi-agent</li>
+                  <li class="chip">Tool use</li>
+                  <li class="chip">State machines</li>
+                </ul>
+              </div>
+            </article>
+            <article class="capability reveal" data-delay="2">
+              <h3 class="capability__title">Local-first LLM inference</h3>
+              <div>
+                <p class="capability__body">
+                  Air-gapped, zero-per-query-cost deployments on CPU and consumer
+                  GPUs. Quantization, Ollama, faster-whisper, GGUF, model
+                  selection. I treat cloud APIs as a fallback, not the default.
+                </p>
+                <ul class="capability__list">
+                  <li class="chip">Ollama</li>
+                  <li class="chip">GGUF / quantisation</li>
+                  <li class="chip">Faster-Whisper</li>
+                  <li class="chip">CPU inference</li>
+                  <li class="chip">vLLM</li>
+                </ul>
+              </div>
+            </article>
+            <article class="capability reveal" data-delay="3">
+              <h3 class="capability__title">Retrieval, embeddings, and RAG</h3>
+              <div>
+                <p class="capability__body">
+                  Vector search that actually finds the right passage, with
+                  citations a reviewer can verify. FAISS, sentence-transformers,
+                  Cohere, hybrid lexical+dense retrieval, evaluation against
+                  ground-truth chunks. I write the pipeline, the eval, and the
+                  guardrails.
+                </p>
+                <ul class="capability__list">
+                  <li class="chip">FAISS</li>
+                  <li class="chip">Sentence-Transformers</li>
+                  <li class="chip">Hybrid search</li>
+                  <li class="chip">RAG evaluation</li>
+                  <li class="chip">Source citation</li>
+                </ul>
+              </div>
+            </article>
+            <article class="capability reveal" data-delay="4">
+              <h3 class="capability__title">Production ML &amp; MLOps</h3>
+              <div>
+                <p class="capability__body">
+                  From notebook to something a non-engineer can use. FastAPI services, Streamlit apps, Pydantic schemas, structured logging, and reproducible experiments. I default to writing the boring infra first so the interesting parts stay reliable.
+                  LangGraph architectures with safety-critic nodes, Pydantic-typed
+                  contracts between agents, and structured handoffs. I&rsquo;ve
+                  shipped agents that pass evaluation harnesses, not just demos.
+                </p>
+                <ul class="capability__list">
+                  <li class="chip">FastAPI</li>
+                  <li class="chip">Pydantic</li>
+                  <li class="chip">Streamlit</li>
+                  <li class="chip">Docker</li>
+                  <li class="chip">GitHub Actions</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section section--alt" id="skills" data-source="inline">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-head__title">
+              <span class="eyebrow"><span>(04) Stack</span></span>
+              <h2 class="h2">The tools I reach for.</h2>
+            </div>
+            <p class="lede">
+              A living list. I learn new stacks quickly when a project demands it;
+              these are the ones I have real depth in.
+            </p>
+          </header>
+          <div class="skills" id="skills-list" role="list" aria-label="Skills"></div>
+        </div>
+      </section>
+      <section class="section" id="experience" data-source="inline">
+        <div class="container">
+          <header class="section-head">
+            <div class="section-head__title">
+              <span class="eyebrow"><span>(05) Experience</span></span>
+              <h2 class="h2">Education &amp; recognition.</h2>
+            </div>
+            <p class="lede">
+              The academic and external context for the work above.
+            </p>
+          </header>
+          <div class="timeline">
+            <article class="timeline__row reveal" data-delay="1">
+              <div class="timeline__when">2024 &ndash; 2028</div>
+              <div>
+                <h3 class="timeline__role">B.S. Artificial Intelligence &amp; Data Science</h3>
+                <p class="timeline__org">Indian Institute of Technology Guwahati</p>
+              </div>
+              <p class="timeline__detail">
+                Coursework spans machine learning, deep learning, statistical
+                modelling, optimization, and systems. Outside class, I lead
+                independent builds in agentic AI and contribute to open-source
+                tooling around LangGraph.
+              </p>
+            </article>
+            <article class="timeline__row reveal" data-delay="2">
+              <div class="timeline__when">2025</div>
+              <div>
+                <h3 class="timeline__role">Independent AI/ML engineer</h3>
+                <p class="timeline__org">Self-directed &middot; client &amp; research work</p>
+              </div>
+              <p class="timeline__detail">
+                Designing and shipping production AI systems &mdash; clinical
+                decision support, autonomous content pipelines, RAG over video
+                corpora, local-first companion agents. Each one starts from a
+                real problem and ships with evaluation.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
       <!-- CONTACT: inlined for SEO -->
       <section class="section section--alt" id="contact" data-source="inline">
@@ -353,7 +544,16 @@
       </div>
     </footer>
 
-    <div id="modal-root"></div>
+    <div class="modal" id="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-modal-title" aria-hidden="true" data-source="inline">
+      <div class="modal__panel">
+        <button class="modal__close" id="case-modal-close" type="button" aria-label="Close case study">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+          </svg>
+        </button>
+        <div class="modal__body" id="case-modal-body"></div>
+      </div>
+    </div>
 
     <style>
       .skip-link {

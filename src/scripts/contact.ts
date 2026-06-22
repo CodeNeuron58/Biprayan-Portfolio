@@ -31,7 +31,7 @@ export function initContactForm(): void {
     const subject = `Portfolio: ${name}${company ? " (" + company + ")" : ""}`;
     const body =
       `Hi Biprayan,\n\n${message}\n\n` +
-      `— ${name}\n${email}${company ? "\n" + company : ""}\n`;
+      `\u2014 ${name}\n${email}${company ? "\n" + company : ""}\n`;
 
     const mailto =
       `mailto:biprayanc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
