@@ -1,28 +1,41 @@
+// Contact form: client-side mailto composer with a graceful status message.
+
 export function initContactForm(): void {
-  // Make handleSubmit available globally
-  (window as any).handleSubmit = handleSubmit;
-}
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  if (!form) return;
 
-function handleSubmit(): void {
-  const nameInput = document.getElementById('name') as HTMLInputElement;
-  const emailInput = document.getElementById('email') as HTMLInputElement;
-  const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+  const status = document.getElementById("cf-status");
+  const setStatus = (msg: string, ok = false): void => {
+    if (!status) return;
+    status.textContent = msg;
+    status.classList.toggle("is-ok", ok);
+  };
 
-  if (!nameInput || !emailInput || !messageInput) {
-    console.error('Form elements not found');
-    return;
-  }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const company = String(data.get("company") || "").trim();
+    const message = String(data.get("message") || "").trim();
 
-  const name = nameInput.value.trim();
-  const email = emailInput.value.trim();
-  const message = messageInput.value.trim();
+    if (!name || !email || !message) {
+      setStatus("Please fill in name, email, and message.");
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      setStatus("That email address looks off. Double-check it?");
+      return;
+    }
 
-  if (!name || !email || !message) {
-    alert('Please fill in all fields.');
-    return;
-  }
+    const subject = `Portfolio: ${name}${company ? " (" + company + ")" : ""}`;
+    const body =
+      `Hi Biprayan,\n\n${message}\n\n` +
+      `— ${name}\n${email}${company ? "\n" + company : ""}\n`;
 
-  const mailto = `mailto:biprayanc@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}`;
-  
-  window.location.href = mailto;
+    const mailto =
+      `mailto:biprayanc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setStatus("Opening your mail client\u2026", true);
+  });
 }
