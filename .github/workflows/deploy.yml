@@ -33,6 +33,18 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Verify rollup native binary is present
+        # Belt-and-suspenders against npm optional-dependency bug cli#4828.
+        # Lists the platform-specific native binary that Rollup needs and
+        # fails the build with a clear message if it is missing.
+        run: |
+          if [ -z "$(ls node_modules/@rollup 2>/dev/null)" ]; then
+            echo "::error::No @rollup/* native binary installed."
+            echo "::error::npm ci did not install an optional rollup native binary."
+            echo "::error::See https://github.com/npm/cli/issues/4828"
+            exit 1
+          fi
+          ls -1 node_modules/@rollup
       - name: Build
         run: npm run build
       - name: Upload artifact
