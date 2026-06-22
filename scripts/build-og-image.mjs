@@ -1,9 +1,10 @@
 // Build the 1200x630 Open Graph preview card for social link previews.
 // Renders a dark editorial layout: large italic "B" mark on the left,
-// name + role on the right, hairline frame. Re-runnable.
+// name + role on the right (tighter), warm accent block on the right
+// edge, hairline frame. Re-runnable.
 //
-//   node scripts/build-og-image.mjs                       # text-based (default)
-//   node scripts/build-og-image.mjs --logo=public/logo.png  # logo-based
+//   node scripts/build-og-image.mjs                          # text-based (default)
+//   node scripts/build-og-image.mjs --logo=public/logo.png     # logo-based
 //
 // Output: public/og-image.png
 
@@ -44,34 +45,56 @@ function escapeXml(s) {
     .replace(/'/g, "&apos;");
 }
 
+// Layout: tighter text column, narrower gap, accent strip on the right.
 const FRAME_INSET = 36;
-const GUTTER = 96;
-const MARK_BOX = { x: GUTTER, y: 140, w: 360, h: 360 };
-const TEXT_X = MARK_BOX.x + MARK_BOX.w + 64;
+const GUTTER = 88;
+const MARK_BOX = { x: GUTTER, y: 140, w: 320, h: 320 };
+const TEXT_X = MARK_BOX.x + MARK_BOX.w + 32;       // was +64; tighter now
+const ACCENT_W = 6;                                 // right-edge warm strip
 
 function buildSvg() {
   return `
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs>
-    <radialGradient id="warm" cx="80%" cy="0%" r="60%">
-      <stop offset="0%" stop-color="${WARM}" stop-opacity="0.08"/>
+    <linearGradient id="accent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="${WARM}" stop-opacity="0.0"/>
+      <stop offset="20%" stop-color="${WARM}" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="${WARM}" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="${WARM}" stop-opacity="0.0"/>
+    </linearGradient>
+    <radialGradient id="warm" cx="78%" cy="0%" r="55%">
+      <stop offset="0%"  stop-color="${WARM}" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="${WARM}" stop-opacity="0"/>
     </radialGradient>
   </defs>
+
+  <!-- background + warm wash -->
   <rect width="${W}" height="${H}" fill="${BG}"/>
   <rect width="${W}" height="${H}" fill="url(#warm)"/>
+
+  <!-- right-edge warm accent strip (subtle vertical band) -->
+  <rect x="${W - ACCENT_W}" y="0" width="${ACCENT_W}" height="${H}" fill="url(#accent)"/>
+  <rect x="${W - ACCENT_W - 18}" y="0" width="1" height="${H}" fill="${LINE}"/>
+
+  <!-- hairline frame -->
   <rect x="${FRAME_INSET}" y="${FRAME_INSET}" width="${W - 2 * FRAME_INSET}" height="${H - 2 * FRAME_INSET}" fill="none" stroke="${LINE}" stroke-width="1"/>
   <rect x="${FRAME_INSET + 18}" y="${FRAME_INSET + 18}" width="${W - 2 * FRAME_INSET - 36}" height="${H - 2 * FRAME_INSET - 36}" fill="none" stroke="${LINE}" stroke-width="1" opacity="0.6"/>
-  <text x="${MARK_BOX.x + MARK_BOX.w / 2}" y="${MARK_BOX.y + MARK_BOX.h / 2 + 80}" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', serif" font-style="italic" font-weight="400" font-size="320" fill="${INK}">B</text>
-  <text x="${MARK_BOX.x}" y="${MARK_BOX.y + MARK_BOX.h + 30}" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="20" letter-spacing="3" fill="${INK_3}">BIPRAYAN / BC</text>
-  <text x="${TEXT_X}" y="220" font-family="Georgia, 'Iowan Old Style', serif" font-size="86" font-weight="400" letter-spacing="-2" fill="${INK}">${escapeXml(NAME)}</text>
-  <text x="${TEXT_X}" y="300" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="500" fill="${INK_2}">${escapeXml(ROLE)}</text>
-  <text x="${TEXT_X}" y="360" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="2.4" fill="${INK_3}">${escapeXml(ORG.toUpperCase())}</text>
-  <g transform="translate(${TEXT_X},410)">
+
+  <!-- monogram -->
+  <text x="${MARK_BOX.x + MARK_BOX.w / 2}" y="${MARK_BOX.y + MARK_BOX.h / 2 + 72}" text-anchor="middle" font-family="Georgia, 'Iowan Old Style', serif" font-style="italic" font-weight="400" font-size="280" fill="${INK}">B</text>
+  <text x="${MARK_BOX.x}" y="${MARK_BOX.y + MARK_BOX.h + 28}" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="3" fill="${INK_3}">BIPRAYAN / BC</text>
+
+  <!-- text column (tighter, closer to monogram) -->
+  <text x="${TEXT_X}" y="240" font-family="Georgia, 'Iowan Old Style', serif" font-size="78" font-weight="400" letter-spacing="-1.5" fill="${INK}">${escapeXml(NAME)}</text>
+  <text x="${TEXT_X}" y="310" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="500" fill="${INK_2}">${escapeXml(ROLE)}</text>
+  <text x="${TEXT_X}" y="358" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="17" letter-spacing="2.4" fill="${INK_3}">${escapeXml(ORG.toUpperCase())}</text>
+  <g transform="translate(${TEXT_X},402)">
     <circle cx="6" cy="-6" r="6" fill="#4ade80"/>
-    <text x="22" y="0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" letter-spacing="2.4" fill="${INK_3}">${escapeXml(STATUS.toUpperCase())}</text>
+    <text x="22" y="0" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="17" letter-spacing="2.4" fill="${INK_3}">${escapeXml(STATUS.toUpperCase())}</text>
   </g>
-  <text x="${W - GUTTER}" y="${H - 56}" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="16" letter-spacing="2" fill="${INK_3}">biprayan.is-a.dev</text>
+
+  <!-- bottom-right domain -->
+  <text x="${W - GUTTER}" y="${H - 56}" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="15" letter-spacing="2" fill="${INK_3}">biprayan.is-a.dev</text>
 </svg>
 `;
 }
