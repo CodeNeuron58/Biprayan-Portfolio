@@ -2,57 +2,66 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0a0a0c" />
-    <meta name="color-scheme" content="dark" />
-    <title>Biprayan Choudhuri - AI/ML Engineer</title>
-    <meta name="description" content="Biprayan Choudhuri is an AI/ML engineer at IIT Guwahati building production-grade agentic systems, LangGraph multi-agent architectures, and RAG pipelines. Open to internships and full-time roles from 2026." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // Pick the layout before first paint: the pinned, scroll-driven "stage" on roomy
+      // screens with motion allowed; a normal flowing document everywhere else.
+      // If the script bundle never arrives, fall back to the flowing document.
+      (function () {
+        var d = document.documentElement;
+        try {
+          if (matchMedia('(min-width: 900px) and (min-height: 560px) and (prefers-reduced-motion: no-preference)').matches) {
+            d.classList.add('stage-mode');
+            setTimeout(function () { if (!d.classList.contains('js-ready')) d.classList.remove('stage-mode'); }, 4000);
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <title>Biprayan Choudhuri — AI Engineer</title>
+    <meta name="description" content="Biprayan Choudhuri, AI engineer at IIT Guwahati. Builds reliable, private-by-design agents: Yumii voice AI, agentic RAG, and award-winning Turnaround." />
     <meta name="author" content="Biprayan Choudhuri" />
-    <meta name="keywords" content="Biprayan Choudhuri, AI engineer, machine learning, LangGraph, RAG, LLM, agentic AI, IIT Guwahati, multi-agent, FAISS, local LLM" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://biprayan.is-a.dev/" />
     <meta name="google-site-verification" content="xloAsCutdhfaeSMVDd5HbZdmeSuQ2td-FW7NvjMkr9E" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://biprayan.is-a.dev/" />
     <meta property="og:site_name" content="Biprayan Choudhuri" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:title" content="Biprayan Choudhuri - AI/ML Engineer" />
-    <meta property="og:description" content="AI/ML engineer at IIT Guwahati building production-grade agentic systems, LangGraph multi-agent architectures, and RAG pipelines. Open to roles from 2026." />
+    <meta property="og:title" content="Biprayan Choudhuri — AI Engineer" />
+    <meta property="og:description" content="AI engineer building agents that are reliable and private by design: Yumii voice AI, agentic RAG, and the Hacktoberfest-winning Turnaround." />
     <meta property="og:image" content="https://biprayan.is-a.dev/og-image.png" />
     <meta property="og:image:secure_url" content="https://biprayan.is-a.dev/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Biprayan Choudhuri - AI/ML Engineer. Available for roles from 2026." />
+    <meta property="og:image:alt" content="Biprayan Choudhuri — AI engineer building agents that are reliable and private by design." />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Biprayan Choudhuri - AI/ML Engineer" />
-    <meta name="twitter:description" content="AI/ML engineer at IIT Guwahati building production-grade agentic AI, LangGraph, and RAG. Open to roles from 2026." />
+    <meta name="twitter:title" content="Biprayan Choudhuri — AI Engineer" />
+    <meta name="twitter:description" content="AI engineer building agents that are reliable and private by design: Yumii voice AI, agentic RAG, and Turnaround." />
     <meta name="twitter:image" content="https://biprayan.is-a.dev/og-image.png" />
-    <meta name="twitter:image:alt" content="Biprayan Choudhuri - AI/ML Engineer" />
+    <meta name="twitter:image:alt" content="Biprayan Choudhuri — AI Engineer" />
 
     <!-- Cross-platform identity (helps Google corroborate the site name) -->
     <link rel="me" href="https://github.com/CodeNeuron58" />
     <link rel="me" href="https://linkedin.com/in/biprayanchoudhuri" />
+    <link rel="me" href="https://dev.to/code_neuron58" />
 
     <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
-  <link rel="shortcut icon" href="/logo.png" />
-  
-  
-    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts (self-hosted; preload the two faces visible on first paint) -->
+    <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Structured data: WebSite -->
     <script type="application/ld+json">
@@ -61,9 +70,9 @@
         "@type": "WebSite",
         "@id": "https://biprayan.is-a.dev/#website",
         "name": "Biprayan Choudhuri",
-        "alternateName": "Biprayan Choudhuri - AI/ML Engineer",
+        "alternateName": "Biprayan Choudhuri — AI Engineer",
         "url": "https://biprayan.is-a.dev/",
-        "description": "Personal portfolio of Biprayan Choudhuri, AI/ML engineer at IIT Guwahati. Agentic systems, LangGraph, RAG, local LLM deployment.",
+        "description": "Portfolio of Biprayan Choudhuri, AI engineer at IIT Guwahati building reliable, private-by-design agents.",
         "inLanguage": "en",
         "publisher": { "@id": "https://biprayan.is-a.dev/#person" },
         "image": "https://biprayan.is-a.dev/og-image.png"
@@ -78,8 +87,8 @@
         "@id": "https://biprayan.is-a.dev/#person",
         "name": "Biprayan Choudhuri",
         "alternateName": "Biprayan",
-        "jobTitle": "AI/ML Engineer",
-        "description": "AI/ML engineer at IIT Guwahati specializing in agentic systems, LangGraph multi-agent architectures, and production-grade RAG pipelines.",
+        "jobTitle": "AI Engineer",
+        "description": "AI engineer and third-year student at IIT Guwahati who ships end to end: an open-source voice AI companion, agentic RAG systems, and an Android app live on Google Play.",
         "url": "https://biprayan.is-a.dev/",
         "image": "https://biprayan.is-a.dev/og-image.png",
         "email": "mailto:biprayanc@gmail.com",
@@ -90,486 +99,353 @@
           "addressCountry": "IN"
         },
         "alumniOf": {
-          "@type": "EducationalOrganization",
+          "@type": "CollegeOrUniversity",
           "name": "Indian Institute of Technology Guwahati",
           "sameAs": "https://www.iitg.ac.in/"
         },
+        "award": "Best Use of TabPFN — Hacktoberfest Open-Source AI Challenge (2026)",
         "knowsAbout": [
-          { "@type": "DefinedTerm", "name": "Agentic AI" },
-          { "@type": "DefinedTerm", "name": "Multi-agent systems" },
-          { "@type": "DefinedTerm", "name": "LangGraph" },
-          { "@type": "DefinedTerm", "name": "LangChain" },
-          { "@type": "DefinedTerm", "name": "Retrieval-augmented generation" },
-          { "@type": "DefinedTerm", "name": "Large language models" },
-          { "@type": "DefinedTerm", "name": "Vector search" },
-          { "@type": "DefinedTerm", "name": "FAISS" },
-          { "@type": "DefinedTerm", "name": "Local LLM inference" },
-          { "@type": "DefinedTerm", "name": "Prompt engineering" },
-          { "@type": "DefinedTerm", "name": "PyTorch" },
-          { "@type": "DefinedTerm", "name": "Python" }
+          "AI agents",
+          "LangGraph",
+          "LangChain",
+          "Retrieval-augmented generation",
+          "Hybrid search",
+          "Voice AI",
+          "Speech-to-text",
+          "Local LLM inference",
+          "Ollama",
+          "FAISS",
+          "FastAPI",
+          "Pydantic",
+          "PyTorch",
+          "Python"
         ],
         "sameAs": [
           "https://github.com/CodeNeuron58",
-          "https://linkedin.com/in/biprayanchoudhuri"
+          "https://linkedin.com/in/biprayanchoudhuri",
+          "https://dev.to/code_neuron58"
         ]
       }
     </script>
 
-    <link rel="stylesheet" href="/src/styles/main.scss" />
-    <script type="module" src="/src/scripts/main.ts"></script>
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <nav class="nav" id="nav" aria-label="Primary" data-source="inline">
-    <div class="container nav__inner">
-      <a href="#top" class="nav__brand" aria-label="Biprayan Choudhuri - home">
-        <span class="nav__mark" aria-hidden="true">
-          <img src="/logo.png" alt="" width="28" height="28" />
-        </span>
-        <span class="nav__brand-name">Biprayan Choudhuri</span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#capabilities">Capabilities</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Stack</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a class="nav__cta" href="mailto:biprayanc@gmail.com">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Open to work</span>
-      </a>
-      <button class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a href="#work">Selected work</a>
-    <a href="#capabilities">Capabilities</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Stack</a>
-    <a href="#contact">Contact</a>
-    <a href="mailto:biprayanc@gmail.com" style="font-family: var(--ff-mono); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); border: 0;">biprayanc@gmail.com &rarr;</a>
-  </div>
-
-    <main id="main">
-      <!-- HERO: inlined for SEO (the JS loadComponent still replaces it for the live UI state) -->
-      <section class="hero" id="top" data-source="inline">
-        <div class="container">
-          <div class="hero__top reveal" data-delay="1">
-            <span class="hero__availability">
-              <span class="dot" aria-hidden="true"></span>
-              Open to internships &amp; full-time roles &middot; 2026
-            </span>
-            <span class="hero__location">IIT Guwahati &middot; IST</span>
-          </div>
-          <h1 class="display hero__title reveal" data-delay="2">
-            I build <em>agentic AI</em> systems that ship.
-          </h1>
-          <p class="lede hero__lede reveal" data-delay="3">
-            I&rsquo;m Biprayan &mdash; an AI/ML engineer focused on multi-agent
-            architectures, local-first LLM deployments, and production-grade
-            RAG pipelines. I design systems where autonomous agents reason,
-            verify, and act &mdash; with a bias for things that actually run.
-          </p>
-          <div class="hero__ctas reveal" data-delay="4">
-            <a class="btn btn--primary" href="#work">
-              <span>View selected work</span>
-              <span class="arrow" aria-hidden="true">&rarr;</span>
-            </a>
-            <a class="btn btn--ghost" href="/Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" rel="noopener">
-              <span>Download r&eacute;sum&eacute;</span>
-              <span class="arrow" aria-hidden="true">&darr;</span>
-            </a>
-            <a class="btn btn--link" href="mailto:biprayanc@gmail.com">
-              <span>biprayanc@gmail.com</span>
-            </a>
-          </div>
-          <dl class="hero__meta reveal" data-delay="5" aria-label="At a glance">
-            <div class="hero__meta-cell">
-              <dt class="hero__meta-num">5+</dt>
-              <dd class="hero__meta-label">Production projects</dd>
-            </div>
-            <div class="hero__meta-cell">
-              <dt class="hero__meta-num">100%</dt>
-              <dd class="hero__meta-label">Local-inference advocate</dd>
-            </div>
-            <div class="hero__meta-cell">
-              <dt class="hero__meta-num">2</dt>
-              <dd class="hero__meta-label">Certifications</dd>
-            </div>
-            <div class="hero__meta-cell">
-              <dt class="hero__meta-num">IIT-G</dt>
-              <dd class="hero__meta-label">B.S. AI &amp; Data Science &middot; 2028</dd>
-            </div>
-          </dl>
+    <div class="scroller" data-k="root">
+      <div class="stage" data-k="stage">
+        <div class="grid" aria-hidden="true">
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
         </div>
-      </section>
 
-      <!-- ABOUT: inlined for SEO -->
-      <section class="section" id="about" data-source="inline">
-        <div class="container">
-          <header class="section-head section-head--about">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(01) About</span></span>
-              <h2 class="h2 about__lede">
-                An engineer&rsquo;s engineer &mdash;
-                <em>obsessed with agents that actually work.</em>
-              </h2>
+        <main>
+          <!-- 01 Intro -->
+          <section class="layer intro" id="intro" data-layer="intro" aria-label="Introduction">
+            <h1 class="hero-name">
+              <span class="hero-line" data-k="l1">Biprayan</span>
+              <span class="hero-line hero-line--right" data-k="l2">Choudhuri</span>
+            </h1>
+            <div class="intro-sub" data-k="sub">
+              <p>AI engineer building agents that are reliable and private by design.</p>
+              <div class="label" aria-hidden="true">Scroll ↓</div>
             </div>
-          </header>
-          <div class="about__layout">
-            <div class="about__lead reveal" data-delay="1">
-              <p>
-                I&rsquo;m a B.S. student of Artificial Intelligence &amp; Data
-                Science at IIT Guwahati, expected to graduate in 2028. I work
-                on the parts of AI that are the hardest to demo and the most
-                rewarding to ship: multi-agent orchestration, safety critics
-                that catch hallucinations before they reach a user, and
-                retrieval pipelines that hold up on messy, real-world data.
-              </p>
-              <p>
-                My work leans local-first &mdash; I&rsquo;d rather run a small
-                model on the user&rsquo;s machine than phone home to a paid
-                API. That constraint is the reason I got into agentic systems
-                in the first place, and it shapes every architecture decision
-                I make.
-              </p>
-              <p class="about__close">
-                I&rsquo;m looking for internships and full-time roles where I
-                can keep doing exactly that &mdash; design, build, and ship
-                AI systems that are reliable enough to put in front of people
-                who depend on them.
-              </p>
+          </section>
+
+          <!-- 02 Summary -->
+          <section class="layer ethos" id="summary" data-layer="ethos" aria-labelledby="summary-title">
+            <div class="ethos-grid">
+              <h2 class="label ethos-label" id="summary-title">(Summary)</h2>
+              <p class="ethos-text" data-k="ethosText">AI engineer and third-year student who ships end to end: an open-source voice AI companion with a one-command Windows installer, agentic RAG systems, and an Android app live on Google Play. Builds with LangGraph, FastAPI and local models, focused on agents that are reliable and private by design.</p>
             </div>
-            <aside class="about__panel reveal" data-delay="2" aria-label="At a glance">
-              <div class="about__panel-head">
-                <span class="about__panel-cap">Quick reference</span>
-                <span class="about__panel-num">01 / 06</span>
+          </section>
+
+          <!-- 03 Award -->
+          <section class="layer award" id="award" data-layer="award" aria-labelledby="award-title">
+            <div class="row-between label"><span>(Recognition)</span><span>Oct 2026</span></div>
+            <div class="award-top">
+              <div class="award-head">
+                <h2 class="winner" id="award-title" aria-label="Winner"><span data-ch="0">W</span><span data-ch="1">I</span><span data-ch="2">N</span><span data-ch="3">N</span><span data-ch="4">E</span><span data-ch="5">R</span></h2>
+                <div class="award-meta" data-aw="0">
+                  <a class="award-title" href="https://dev.to/devteam/congrats-to-the-hacktoberfest-open-source-ai-challenge-touch-grass-winners-152c" target="_blank" rel="noopener">Best Use of TabPFN ↗</a>
+                  <span class="label">Featured category winner</span>
+                  <span class="label label--note">Hacktoberfest Open-Source AI Challenge · Week 1: Touch Grass</span>
+                </div>
               </div>
-              <dl class="about__creds">
-                <div class="about__cred">
-                  <dt>Based in</dt>
-                  <dd>Guwahati, India &middot; open to remote &amp; relocation</dd>
+              <div class="rule" data-k="awLine"></div>
+            </div>
+            <div class="award-body">
+              <div class="award-text" data-aw="1">
+                <div>
+                  <div class="label dim">Winning project</div>
+                  <h3 class="award-project">Turnaround</h3>
+                  <p class="award-lede">An open-source hiking buddy that knows when you should turn back, and tells someone if you don’t come home.</p>
                 </div>
-                <div class="about__cred">
-                  <dt>Education</dt>
-                  <dd>Indian Institute of Technology Guwahati &middot; B.S. AI &amp; Data Science &middot; 2028</dd>
+                <dl class="stats">
+                  <div><dt class="stat-num">7,186</dt><dd class="stat-label">Recorded hikes it learns from</dd></div>
+                  <div><dt class="stat-num">34.8 min</dt><dd class="stat-label">Avg. error · Naismith’s rule: 44.1</dd></div>
+                  <div><dt class="stat-num">90.4%</dt><dd class="stat-label">Hikers back before “back by”</dd></div>
+                </dl>
+                <div class="meta-table meta-table--award">
+                  <span class="dim">Stack</span><span>TabPFN, Gemma 4, Kokoro, Temporal, FastAPI, React</span>
+                  <span class="dim">Links</span><span class="meta-links"><a href="https://dev.to/code_neuron58/turnaround-an-open-source-hiking-buddy-that-knows-when-you-should-turn-back-and-tells-someone-if-1pha" target="_blank" rel="noopener">Write-up ↗</a><a href="https://github.com/CodeNeuron58/Turnaround" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.youtube.com/watch?v=eOzc_RNBzMk" target="_blank" rel="noopener">Demo ↗</a></span>
                 </div>
-                <div class="about__cred">
-                  <dt>Focus areas</dt>
-                  <dd>Agentic systems, multi-agent orchestration, local LLM inference, production RAG, safety &amp; evaluation</dd>
+              </div>
+              <div class="award-media" data-aw="2">
+                <img src="/images/turnaround.webp" srcset="/images/turnaround-700.webp 700w, /images/turnaround.webp 1400w" sizes="(max-width: 899px) calc(100vw - 40px), min(57vh, 44vw)" width="1400" height="588" loading="lazy" decoding="async" alt="Turnaround app: a turn-around-by time of 9:14 AM, likely moving time, and the trail's elevation profile." />
+              </div>
+            </div>
+          </section>
+
+          <!-- 04 Work -->
+          <section class="layer work" id="work" data-layer="work" aria-labelledby="work-title">
+            <h2 class="visually-hidden" id="work-title">Selected work</h2>
+
+            <article class="proj" data-proj="0">
+              <div class="ptext" data-k="ptext">
+                <div class="row-between label"><span>Selected work — 01 / 04</span><span>Jan 2026 — Present</span></div>
+                <div>
+                  <div class="proj-title-row">
+                    <span class="proj-num" aria-hidden="true">01</span>
+                    <h3 class="proj-name">Yumii</h3>
+                  </div>
+                  <p class="proj-sub">Open-Source AI Companion</p>
+                  <ul class="proj-points">
+                    <li><span aria-hidden="true">—</span><span>Built a Windows desktop voice companion (v0.13, 200+ commits) on a real-time loop: Silero VAD and Whisper speech-to-text, a LangGraph agent, and streamed text-to-speech that users can interrupt mid-reply.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Gave the agent permission-gated tools (web search, plus Gmail, Google Calendar and Notion via Composio): every action waits for the user’s approval before it runs.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Designed long-term memory in local SQLite: full-text search over every past conversation, session summaries, and a fact store the agent writes and corrects itself.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Private by design, with no account or telemetry and a fully offline mode (local Whisper, Kokoro, Ollama); installs with one PowerShell command.</span></li>
+                  </ul>
                 </div>
-                <div class="about__cred">
-                  <dt>Languages</dt>
-                  <dd>English (fluent) &middot; Hindi (native) &middot; Assamese (native)</dd>
+                <div class="meta-table">
+                  <span class="dim">Stack</span><span>Python, LangGraph, Tauri, Whisper, SQLite</span><span class="dim">Link</span><a href="https://yumii.me" target="_blank" rel="noopener">yumii.me ↗</a>
                 </div>
-                <div class="about__cred about__cred--accent">
-                  <dt>Status</dt>
-                  <dd>Open to internships and full-time roles from 2026</dd>
+              </div>
+              <div class="pimg" data-k="pimg">
+                <img src="/images/yumii.webp" srcset="/images/yumii-480.webp 480w, /images/yumii-800.webp 800w, /images/yumii.webp 1200w" sizes="(max-width: 899px) calc(100vw - 40px), 45vw" width="1200" height="1395" loading="lazy" decoding="async" alt="Yumii website: a glowing orb companion with the line “Someone to talk to, always within reach.”" style="object-position: 50% 0%" />
+              </div>
+            </article>
+
+            <article class="proj" data-proj="1">
+              <div class="ptext" data-k="ptext">
+                <div class="row-between label"><span>Selected work — 02 / 04</span><span>Nov 2025</span></div>
+                <div>
+                  <div class="proj-title-row">
+                    <span class="proj-num" aria-hidden="true">02</span>
+                    <h3 class="proj-name">RxGuard</h3>
+                  </div>
+                  <p class="proj-sub">Agentic Medication Safety Copilot</p>
+                  <ul class="proj-points">
+                    <li><span aria-hidden="true">—</span><span>Built a clinical agent as a cyclic LangGraph state machine that extracts a structured patient profile from free-text notes, plans research steps, retrieves guideline evidence from FAISS, and reasons about medication risk.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Added a Safety Critic node that rejects any finding without explicit guideline citations and sends the agent back to re-plan; a retry cap and a confidence check end hard cases in a safe report instead of a loop.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Runs fully locally (MedGemma-4B via Ollama, EmbeddingGemma embeddings), so patient notes never leave the machine; every node returns Pydantic-validated JSON, and a Streamlit UI streams each reasoning step live.</span></li>
+                  </ul>
                 </div>
-              </dl>
-              <a class="about__panel-cta" href="#contact">
-                <span>Get in touch</span>
-                <span class="arrow" aria-hidden="true">&rarr;</span>
+                <div class="meta-table">
+                  <span class="dim">Stack</span><span>LangGraph, Ollama, FAISS, Streamlit</span>
+                </div>
+              </div>
+              <div class="pimg pimg--diagram" data-k="pimg">
+                <svg class="graph" viewBox="0 0 600 780" preserveAspectRatio="xMidYMid meet" role="img" aria-label="RxGuard agent graph: clinical notes, extract patient profile, plan research, retrieve evidence from FAISS, reason about risk, then a safety critic that either sends the agent back to re-plan or ends in a safe report.">
+                  <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" /></marker>
+                  </defs>
+                  <text class="g-cap" x="40" y="44">LANGGRAPH STATE MACHINE</text>
+                  <text class="g-cap" x="560" y="44" text-anchor="end">LOCAL · MEDGEMMA-4B</text>
+                  <g class="g-node g-node--input"><rect x="110" y="80" width="340" height="56" /><text x="280" y="113">CLINICAL NOTES</text></g>
+                  <g class="g-node"><rect x="110" y="176" width="340" height="56" /><text x="280" y="209">EXTRACT PATIENT PROFILE</text></g>
+                  <g class="g-node"><rect x="110" y="272" width="340" height="56" /><text x="280" y="305">PLAN RESEARCH</text></g>
+                  <g class="g-node"><rect x="110" y="368" width="340" height="56" /><text x="280" y="401">RETRIEVE EVIDENCE · FAISS</text></g>
+                  <g class="g-node"><rect x="110" y="464" width="340" height="56" /><text x="280" y="497">REASON ABOUT RISK</text></g>
+                  <g class="g-node g-node--critic"><rect x="110" y="560" width="340" height="56" /><text x="280" y="593">SAFETY CRITIC</text></g>
+                  <g class="g-node g-node--out"><rect x="110" y="676" width="340" height="56" /><text x="280" y="709">SAFE REPORT</text></g>
+                  <g class="g-edge">
+                    <path d="M280 136V172" /><path d="M280 232V268" /><path d="M280 328V364" /><path d="M280 424V460" /><path d="M280 520V556" /><path d="M280 616V672" />
+                    <path d="M450 588H530V300H454" />
+                  </g>
+                  <text class="g-cap" x="292" y="650">CITED · OR RETRY CAP</text>
+                  <text class="g-cap" x="548" y="444" text-anchor="middle" transform="rotate(90 548 444)">NO CITATION → RE-PLAN</text>
+                </svg>
+              </div>
+            </article>
+
+            <article class="proj" data-proj="2">
+              <div class="ptext" data-k="ptext">
+                <div class="row-between label"><span>Selected work — 03 / 04</span><span>Mar 2026</span></div>
+                <div>
+                  <div class="proj-title-row">
+                    <span class="proj-num" aria-hidden="true">03</span>
+                    <h3 class="proj-name">Hybrid RAG</h3>
+                  </div>
+                  <p class="proj-sub">Hybrid-Search RAG Chatbot</p>
+                  <ul class="proj-points">
+                    <li><span aria-hidden="true">—</span><span>Built a 3-stage retrieval pipeline: multi-query expansion, hybrid search (FAISS dense + BM25 sparse), and cross-encoder re-ranking with FlashRank, answering with Llama 3.3 70B on Groq.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Split the app into an async FastAPI backend and a stateless Streamlit client, containerized with Docker Compose using multi-stage uv builds and CPU-only PyTorch to keep images small.</span></li>
+                    <li><span aria-hidden="true">—</span><span>Persisted the vector store and chat memory on Docker volumes so both survive restarts, with pytest unit and integration tests for the API.</span></li>
+                  </ul>
+                </div>
+                <div class="meta-table">
+                  <span class="dim">Stack</span><span>FastAPI, LangChain, FAISS, Docker, Streamlit</span><span class="dim">Link</span><a href="https://github.com/CodeNeuron58/AI-RAG-Chatbot" target="_blank" rel="noopener">GitHub ↗</a>
+                </div>
+              </div>
+              <div class="pimg" data-k="pimg">
+                <img src="/images/hybrid-rag.webp" srcset="/images/hybrid-rag-480.webp 480w, /images/hybrid-rag-800.webp 800w, /images/hybrid-rag.webp 1200w" sizes="(max-width: 899px) calc(100vw - 40px), 45vw" width="1200" height="1203" loading="lazy" decoding="async" alt="Hybrid RAG chatbot interface: hybrid retrieval, FlashRank re-ranking, and visible sources." />
+              </div>
+            </article>
+
+            <article class="proj" data-proj="3">
+              <div class="ptext" data-k="ptext">
+                <div class="row-between label"><span>Selected work — 04 / 04</span><span>Sep 2026</span></div>
+                <div>
+                  <div class="proj-title-row">
+                    <span class="proj-num" aria-hidden="true">04</span>
+                    <h3 class="proj-name">Open Innings</h3>
+                  </div>
+                  <p class="proj-sub">Cricket Scoring App</p>
+                  <ul class="proj-points">
+                    <li><span aria-hidden="true">—</span><span>Built and shipped a cricket scoring app for Android for RevenueCat Shipaton 2026, now live on Google Play.</span></li>
+                  </ul>
+                </div>
+                <div class="meta-table">
+                  <span class="dim">Stack</span><span>Android</span><span class="dim">Link</span><a href="https://play.google.com/store/apps/details?id=app.openinnings" target="_blank" rel="noopener">Google Play ↗</a>
+                </div>
+              </div>
+              <div class="pimg" data-k="pimg">
+                <img src="/images/open-innings.webp" srcset="/images/open-innings-480.webp 480w, /images/open-innings-800.webp 800w, /images/open-innings.webp 1080w" sizes="(max-width: 899px) calc(100vw - 40px), 45vw" width="1080" height="720" loading="lazy" decoding="async" alt="Open Innings: ball-by-ball cricket scoring. Open source, offline-first." />
+              </div>
+            </article>
+          </section>
+
+          <!-- 05 More work -->
+          <section class="layer more" id="more" data-layer="more" aria-labelledby="more-title">
+            <div class="more-top">
+              <h2 class="more-title" id="more-title">More work</h2>
+              <div class="label label--tight">(Other builds — 06)</div>
+            </div>
+            <div class="more-table">
+              <div class="more-head" aria-hidden="true"><span>No.</span><span>Project</span><span>About</span><span>Stack</span><span class="ar">Year</span><span></span></div>
+              <a class="more-row" data-more="0" href="https://github.com/CodeNeuron58/quiff" target="_blank" rel="noopener">
+                <span class="more-no">05</span>
+                <span class="more-name">Quiff</span>
+                <span class="more-about">Ultrafast computer use for AI agents on Windows and Chrome.</span>
+                <span class="more-stack">Python</span>
+                <span class="more-year">2026</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
               </a>
-            </aside>
-          </div>
-        </div>
-      </section>
+              <a class="more-row" data-more="1" href="https://github.com/CodeNeuron58/SecureNote" target="_blank" rel="noopener">
+                <span class="more-no">06</span>
+                <span class="more-name">SecureNote</span>
+                <span class="more-about">Encrypted note sharing with per-viewer watermarks.</span>
+                <span class="more-stack">TypeScript, Gemma 3</span>
+                <span class="more-year">2026</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="more-row" data-more="2" href="https://github.com/CodeNeuron58/snap-voice" target="_blank" rel="noopener">
+                <span class="more-no">07</span>
+                <span class="more-name">Snap</span>
+                <span class="more-about">Fully offline, NPU-first voice assistant for Snapdragon X.</span>
+                <span class="more-stack">Whisper, Qwen3, Piper</span>
+                <span class="more-year">2026</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="more-row" data-more="3" href="https://github.com/CodeNeuron58/Multi-Agent-Orchestration-System" target="_blank" rel="noopener">
+                <span class="more-no">08</span>
+                <span class="more-name">Multi-Agent System</span>
+                <span class="more-about">Event-driven agent orchestration with live SSE streaming.</span>
+                <span class="more-stack">Python, SSE</span>
+                <span class="more-year">2026</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="more-row" data-more="4" href="https://github.com/CodeNeuron58/langgraph-blog-agent" target="_blank" rel="noopener">
+                <span class="more-no">09</span>
+                <span class="more-name">Blog Agent</span>
+                <span class="more-about">Researches the web and drafts technical blog posts.</span>
+                <span class="more-stack">LangGraph, Groq, Tavily</span>
+                <span class="more-year">2026</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="more-row" data-more="5" href="https://github.com/CodeNeuron58/Video-RAG-Analyst" target="_blank" rel="noopener">
+                <span class="more-no">10</span>
+                <span class="more-name">Video RAG Analyst</span>
+                <span class="more-about">Summarizes YouTube videos and answers with sources.</span>
+                <span class="more-stack">LangChain, FAISS</span>
+                <span class="more-year">2025</span>
+                <span class="more-arrow" aria-hidden="true">↗</span>
+              </a>
+              <div class="more-end"></div>
+            </div>
+          </section>
 
-      <section class="section" id="work" data-source="inline">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(02) Selected work</span></span>
-              <h2 class="h2">
-                Five projects that show <em>how I think about AI systems</em>.
-              </h2>
+          <!-- 06 Skills -->
+          <section class="layer stack" id="skills" data-layer="stack" aria-labelledby="skills-title">
+            <h2 class="label skills-label" id="skills-title">(Technical skills)</h2>
+            <div class="marquee" data-k="row1" aria-hidden="true">Python · LangGraph · FastAPI · PyTorch · Ollama · FAISS · Python · LangGraph</div>
+            <div class="marquee marquee--outline" data-k="row2" aria-hidden="true">Agents · Voice AI · Retrieval · Realtime · Local models · Agents · Voice AI</div>
+            <div class="skills-grid">
+              <div><h3 class="label label--sm dim">Languages</h3><p>Python, SQL, JavaScript</p></div>
+              <div><h3 class="label label--sm dim">Frameworks</h3><p>LangGraph, LangChain, FastAPI, Pydantic, Streamlit, PyTorch, Hugging Face, scikit-learn</p></div>
+              <div><h3 class="label label--sm dim">LLM &amp; Retrieval</h3><p>OpenAI, Anthropic and Groq APIs, Ollama, FAISS, ChromaDB, hybrid search, re-ranking</p></div>
+              <div><h3 class="label label--sm dim">Voice / Realtime</h3><p>Silero VAD, Whisper STT, Kokoro TTS, ElevenLabs, WebSockets, SSE streaming</p></div>
+              <div><h3 class="label label--sm dim">Infrastructure</h3><p>Docker, Docker Compose, SQLite, PostgreSQL, SQLAlchemy, uv, Git, GitHub Actions, Linux</p></div>
             </div>
-            <p class="lede">
-              Each one started as a real problem &mdash; a hallucinated clinical
-              answer, a video transcript no one could query, a blog draft that took
-              an hour. The list below is the work I&rsquo;m most proud of because
-              each one shipped.
-            </p>
-          </header>
-          <div class="work" id="work-list" role="list" aria-label="Selected projects"></div>
-        </div>
-      </section>
-      <section class="section" id="capabilities" data-source="inline">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(03) Capabilities</span></span>
-              <h2 class="h2">What I can own end-to-end.</h2>
-            </div>
-            <p class="lede">
-              A short list of the things I&rsquo;ve shipped more than once and can be
-              trusted to run with. If your team needs any of this, I&rsquo;m a fast
-              ramp.
-            </p>
-          </header>
-          <div>
-            <article class="capability reveal" data-delay="1">
-              <h3 class="capability__title">Agentic systems &amp; multi-agent orchestration</h3>
-              <div>
-                <p class="capability__body">
-                  State-graph agents that fan out, verify, and re-evaluate.
-                  LangGraph architectures with safety-critic nodes, Pydantic-typed
-                  contracts between agents, and structured handoffs. I&rsquo;ve
-                  shipped agents that pass evaluation harnesses, not just demos.
-                </p>
-                <ul class="capability__list">
-                  <li class="chip">LangGraph</li>
-                  <li class="chip">LangChain</li>
-                  <li class="chip">Multi-agent</li>
-                  <li class="chip">Tool use</li>
-                  <li class="chip">State machines</li>
-                </ul>
-              </div>
-            </article>
-            <article class="capability reveal" data-delay="2">
-              <h3 class="capability__title">Local-first LLM inference</h3>
-              <div>
-                <p class="capability__body">
-                  Air-gapped, zero-per-query-cost deployments on CPU and consumer
-                  GPUs. Quantization, Ollama, faster-whisper, GGUF, model
-                  selection. I treat cloud APIs as a fallback, not the default.
-                </p>
-                <ul class="capability__list">
-                  <li class="chip">Ollama</li>
-                  <li class="chip">GGUF / quantisation</li>
-                  <li class="chip">Faster-Whisper</li>
-                  <li class="chip">CPU inference</li>
-                  <li class="chip">vLLM</li>
-                </ul>
-              </div>
-            </article>
-            <article class="capability reveal" data-delay="3">
-              <h3 class="capability__title">Retrieval, embeddings, and RAG</h3>
-              <div>
-                <p class="capability__body">
-                  Vector search that actually finds the right passage, with
-                  citations a reviewer can verify. FAISS, sentence-transformers,
-                  Cohere, hybrid lexical+dense retrieval, evaluation against
-                  ground-truth chunks. I write the pipeline, the eval, and the
-                  guardrails.
-                </p>
-                <ul class="capability__list">
-                  <li class="chip">FAISS</li>
-                  <li class="chip">Sentence-Transformers</li>
-                  <li class="chip">Hybrid search</li>
-                  <li class="chip">RAG evaluation</li>
-                  <li class="chip">Source citation</li>
-                </ul>
-              </div>
-            </article>
-            <article class="capability reveal" data-delay="4">
-              <h3 class="capability__title">Production ML &amp; MLOps</h3>
-              <div>
-                <p class="capability__body">
-                  From notebook to something a non-engineer can use. FastAPI services, Streamlit apps, Pydantic schemas, structured logging, and reproducible experiments. I default to writing the boring infra first so the interesting parts stay reliable.
-                  LangGraph architectures with safety-critic nodes, Pydantic-typed
-                  contracts between agents, and structured handoffs. I&rsquo;ve
-                  shipped agents that pass evaluation harnesses, not just demos.
-                </p>
-                <ul class="capability__list">
-                  <li class="chip">FastAPI</li>
-                  <li class="chip">Pydantic</li>
-                  <li class="chip">Streamlit</li>
-                  <li class="chip">Docker</li>
-                  <li class="chip">GitHub Actions</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section class="section section--alt" id="skills" data-source="inline">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(04) Stack</span></span>
-              <h2 class="h2">The tools I reach for.</h2>
-            </div>
-            <p class="lede">
-              A living list. I learn new stacks quickly when a project demands it;
-              these are the ones I have real depth in.
-            </p>
-          </header>
-          <div class="skills" id="skills-list" role="list" aria-label="Skills"></div>
-        </div>
-      </section>
-      <section class="section" id="experience" data-source="inline">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(05) Experience</span></span>
-              <h2 class="h2">Education &amp; recognition.</h2>
-            </div>
-            <p class="lede">
-              The academic and external context for the work above.
-            </p>
-          </header>
-          <div class="timeline">
-            <article class="timeline__row reveal" data-delay="1">
-              <div class="timeline__when">2024 &ndash; 2028</div>
-              <div>
-                <h3 class="timeline__role">B.S. Artificial Intelligence &amp; Data Science</h3>
-                <p class="timeline__org">Indian Institute of Technology Guwahati</p>
-              </div>
-              <p class="timeline__detail">
-                Coursework spans machine learning, deep learning, statistical
-                modelling, optimization, and systems. Outside class, I lead
-                independent builds in agentic AI and contribute to open-source
-                tooling around LangGraph.
-              </p>
-            </article>
-            <article class="timeline__row reveal" data-delay="2">
-              <div class="timeline__when">2025</div>
-              <div>
-                <h3 class="timeline__role">Independent AI/ML engineer</h3>
-                <p class="timeline__org">Self-directed &middot; client &amp; research work</p>
-              </div>
-              <p class="timeline__detail">
-                Designing and shipping production AI systems &mdash; clinical
-                decision support, autonomous content pipelines, RAG over video
-                corpora, local-first companion agents. Each one starts from a
-                real problem and ships with evaluation.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <!-- CONTACT: inlined for SEO -->
-      <section class="section section--alt" id="contact" data-source="inline">
-        <div class="container">
-          <header class="section-head">
-            <div class="section-head__title">
-              <span class="eyebrow"><span>(06) Contact</span></span>
-              <h2 class="h2">Let&rsquo;s talk about what you&rsquo;re building.</h2>
+          <!-- 07 Open source + Education -->
+          <section class="layer about" id="open-source" data-layer="about" aria-label="Open source and education">
+            <div class="about-col" data-row="0">
+              <div class="row-between label"><h2 class="label">(Open source)</h2><span>Jun 2026</span></div>
+              <h3 class="os-title">Pydantic</h3>
+              <div class="os-bar"><span>28K+ stars</span><a href="https://github.com/pydantic/pydantic/pull/13314" target="_blank" rel="noopener">PR #13314 ↗</a><span class="dim">Merged upstream</span></div>
+              <p class="os-text">Corrected four inaccurate docstrings in <code>fields.py</code> and the internal validators, e.g. <code>PrivateAttr</code> documented <code>ValueError</code> but raises <code>TypeError</code>, and <code>Field.max_digits</code> said strings but constrains <code>Decimal</code>; merged upstream.</p>
             </div>
-            <p class="lede">
-              I read every message myself. The fastest way in is email;
-              LinkedIn or GitHub also work.
-            </p>
-          </header>
-          <div class="contact__grid">
-            <div>
-              <p class="contact__lede">
-                I&rsquo;m currently taking on internships and full-time roles
-                starting 2026, plus select research collaborations. If
-                you&rsquo;re working on agentic systems, applied LLMs, or
-                local-first deployment &mdash; I&rsquo;d like to hear about
-                it.
-              </p>
-              <div class="contact__rows">
-                <a class="contact__row" href="mailto:biprayanc@gmail.com">
-                  <span class="label">Email</span>
-                  <span>biprayanc@gmail.com &rarr;</span>
-                </a>
-                <a class="contact__row" href="https://linkedin.com/in/biprayanchoudhuri" target="_blank" rel="noopener">
-                  <span class="label">LinkedIn</span>
-                  <span>in/biprayanchoudhuri &rarr;</span>
-                </a>
-                <a class="contact__row" href="https://github.com/CodeNeuron58" target="_blank" rel="noopener">
-                  <span class="label">GitHub</span>
-                  <span>CodeNeuron58 &rarr;</span>
-                </a>
-                <a class="contact__row" href="/Biprayan_Choudhuri_Resume_v4.pdf" target="_blank" rel="noopener">
-                  <span class="label">R&eacute;sum&eacute;</span>
-                  <span>Download PDF &darr;</span>
-                </a>
-              </div>
+            <div class="about-col" data-row="1">
+              <div class="row-between label"><h2 class="label">(Education)</h2><span>2024 — 2028</span></div>
+              <h3 class="edu-degree">B.S. Artificial Intelligence and Data Science</h3>
+              <p class="edu-school">Indian Institute of Technology Guwahati</p>
             </div>
-            <p>
-              Or use the form below &mdash; it opens your email client with
-              the message pre-filled. The form is wired to
-              <a href="mailto:biprayanc@gmail.com">biprayanc@gmail.com</a>.
-            </p>
-            <form class="form" id="contact-form" novalidate>
-              <div class="form__row">
-                <div class="form__group">
-                  <label class="form__label" for="cf-name">Name</label>
-                  <input class="form__input" id="cf-name" name="name" type="text" autocomplete="name" required />
-                </div>
-                <div class="form__group">
-                  <label class="form__label" for="cf-email">Email</label>
-                  <input class="form__input" id="cf-email" name="email" type="email" autocomplete="email" required />
+          </section>
+
+          <!-- 08 Contact -->
+          <section class="layer contact" id="contact" data-layer="contact" aria-labelledby="contact-title">
+            <div class="circle" data-k="circle">
+              <div class="cinner" data-k="cinner">
+                <div class="label">(Have an idea?)</div>
+                <h2 class="contact-title" id="contact-title">Let’s talk.</h2>
+                <div class="contact-row">
+                  <a class="contact-email" href="mailto:biprayanc@gmail.com">biprayanc@gmail.com ↗</a>
+                  <div class="contact-links label">
+                    <a href="https://github.com/CodeNeuron58" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/biprayanchoudhuri" target="_blank" rel="noopener">LinkedIn</a><a href="https://biprayan.is-a.dev">biprayan.is-a.dev</a>
+                  </div>
                 </div>
               </div>
-              <div class="form__group">
-                <label class="form__label" for="cf-company">Company / role (optional)</label>
-                <input class="form__input" id="cf-company" name="company" type="text" autocomplete="organization" />
-              </div>
-              <div class="form__group">
-                <label class="form__label" for="cf-message">Message</label>
-                <textarea class="form__textarea" id="cf-message" name="message" required></textarea>
-              </div>
-              <div>
-                <button class="btn btn--primary" type="submit">
-                  <span>Send</span>
-                  <span class="arrow" aria-hidden="true">&rarr;</span>
-                </button>
-              </div>
-              <p class="form__status" id="cf-status" role="status" aria-live="polite"></p>
-            </form>
+            </div>
+          </section>
+        </main>
+
+        <!-- HUD -->
+        <div class="hud">
+          <div class="hud-top">
+            <a class="hud-name" href="#intro" data-nav-jump="0">Biprayan Choudhuri</a>
+            <span class="hud-role">AI engineer</span>
+            <span class="hud-place">Guwahati<span class="hud-clock"> — <span data-k="clock">00:00</span> IST</span></span>
+          </div>
+          <div class="hud-bottom">
+            <nav class="hud-nav" aria-label="Sections">
+              <a href="#intro" data-nav="0">01<span data-lbl> Intro</span></a>
+              <a href="#summary" data-nav="1">02<span data-lbl> Summary</span></a>
+              <a href="#award" data-nav="2">03<span data-lbl> Award</span></a>
+              <a href="#work" data-nav="3">04<span data-lbl> Work</span></a>
+              <a href="#more" data-nav="4">05<span data-lbl> More</span></a>
+              <a href="#skills" data-nav="5">06<span data-lbl> Skills</span></a>
+              <a href="#open-source" data-nav="6">07<span data-lbl> Open source</span></a>
+              <a href="#contact" data-nav="7">08<span data-lbl> Contact</span></a>
+            </nav>
+            <div class="hud-progress" aria-hidden="true">
+              <div class="hud-track"><div class="hud-bar" data-k="bar"></div></div>
+              <span class="hud-pct" data-k="pct">000</span>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
-
-    <!-- FOOTER: inlined for SEO -->
-    <footer class="footer" data-source="inline">
-      <div class="container footer__inner">
-        <div class="footer__cta">
-          <h2 class="footer__big">
-            Have an <em>agentic AI</em> problem?<br />Let&rsquo;s ship something.
-          </h2>
-          <div class="footer__contact">
-            <a href="mailto:biprayanc@gmail.com">biprayanc@gmail.com</a>
-            <a href="https://linkedin.com/in/biprayanchoudhuri" target="_blank" rel="noopener">in/biprayanchoudhuri</a>
-            <a href="https://github.com/CodeNeuron58" target="_blank" rel="noopener">github.com/CodeNeuron58</a>
-          </div>
-        </div>
-        <div class="footer__bottom">
-          <span>&copy; 2026 Biprayan Choudhuri</span>
-          <span>Designed &amp; built by hand &middot; Vite + TypeScript + SCSS</span>
-          <a href="#top">Back to top &uarr;</a>
-        </div>
-      </div>
-    </footer>
-
-    <div class="modal" id="case-modal" role="dialog" aria-modal="true" aria-labelledby="case-modal-title" aria-hidden="true" data-source="inline">
-      <div class="modal__panel">
-        <button class="modal__close" id="case-modal-close" type="button" aria-label="Close case study">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
-          </svg>
-        </button>
-        <div class="modal__body" id="case-modal-body"></div>
       </div>
     </div>
-
-    <style>
-      .skip-link {
-        position: absolute;
-        left: 12px;
-        top: 12px;
-        padding: 10px 14px;
-        background: #f4f1ea;
-        color: #0a0a0c;
-        border-radius: 8px;
-        font-size: 13px;
-        transform: translateY(-200%);
-        transition: transform 0.2s ease;
-        z-index: 100;
-      }
-      .skip-link:focus { transform: translateY(0); }
-    </style>
   </body>
 </html>
